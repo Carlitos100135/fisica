@@ -6,6 +6,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/jpg" href="imagens/logo.jpg">
     <title>Projeto Masterclass SLO</title>
+<!--necessidades:
+- cabeçalho fixo com links para infos extras(instagram, info, inicio, descrição,);                  FAZIDO
+- rodapé no fim da pagina com mais infos extras(redirect pro ifsc, infos do cern,parte tecnica);    FAZIDO
+- página apresentando o time;
+- página apresentando o cern e parte tecnica;
+- página home com explicação básica do projeto e infos essenciais;                                  FAZIDO
+- página mostrando/explicando resultados já obtidos;
+- redict para inscrição no projeto/ algo semelhante -->
+
+
     <style>
         body { 
             background-image: url('imagens/fundo_principal.png'); 
@@ -17,7 +27,7 @@
             color: #333;
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* quantidade de rolagem minima*/
+            min-height: 100vh;
         }
        
         header {
@@ -48,8 +58,8 @@
         }
 
         main {
-            margin-top: 70px; /* Evita sobreposição do header */
-            flex: 1; /* Faz o main ocupar o espaço central */
+            margin-top: 70px;
+            flex: 1;
             padding: 20px;
         }
 
@@ -62,9 +72,8 @@
             border-radius: 8px;
         }
 
-        /* Banner grande no topo */
         .banner {
-            background-image: url('imagens/logo.png '); /* Banner no topo */
+            background-image: url('imagens/logo.png');
             background-size: cover;
             background-position: center;
             height: 400px;
@@ -75,19 +84,11 @@
             text-align: center;
         }
 
-      /*  .conteudo-banner {
-            background-color: rgba(0,0,0,0.4);
-            padding: 20px;
-            border-radius: 8px;
-        } */
-
-        /* Rodape*/
         footer {
             background-color: black;
             color: white;
             padding: 15px 20px;
             text-align: center;
-
             bottom: 0;
             left: 0;
             width: 100%;
@@ -104,49 +105,25 @@
             color: #fff;
         }
         
-        .faixa-branca .conteudo-colunas {
+        .conteudo-colunas {
             display: flex;
             justify-content: space-between; 
             align-items: stretch;
-            gap: 20px; /* Espaçamento entre colunas */
-            flex-wrap: wrap; /* Para funcionar em celular */
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
-        /* Coluna de texto */
-        .faixa-branca .conteudo-colunas .texto {
-            flex: 1 1 60%; /* Ocupa maior parte da faixa */
-        }
+        .texto { flex: 1 1 60%; }
 
-        /* Coluna de botões */
-        .faixa-branca .conteudo-colunas .botoes {
-            flex: 1 1 35%; /* tamanho do botão(horizontal) */
-            display: flex;
-            flex-direction: column; /* Botões um abaixo do outro */
-            gap: 10px; /* Espaçamento entre os botões */
-        }
-
-        .faixa-branca .conteudo-colunas .botoes2 {
-            flex: 1 1 35%; 
+        .botoes, .botoes2 {
+            flex: 1 1 35%;
             display: flex;
             flex-direction: column;
-            height: auto;
+            gap: 10px;
             justify-content: center;
-
         }
 
-        /* Estilo dos botões */
-        .faixa-branca .botoes .botao {
-            display: inline-block;
-            background-color: #2522e6;
-            color: white;
-            text-decoration: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            text-align: center;
-            transition: background-color 0.3s;
-        }
-        
-        .faixa-branca .botoes2 .botao2 {
+        .botao, .botao2 {
             display: inline-block;
             background-color: #2522e6;
             color: white;
@@ -157,23 +134,37 @@
             transition: background-color 0.3s;
         }
 
-
-        .faixa-branca .botoes .botao:hover {
+        .botao:hover, .botao2:hover {
             background-color: #1b19b3;
-
         }
+
         /* Botão hambúrguer */
         .menu-btn {
             display: none;
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
+            transition: transform 0.3s ease;
         }
 
         .menu-btn div {
             width: 25px;
             height: 3px;
             background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        /* Animação para virar X */
+        .menu-btn.active div:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-btn.active div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-btn.active div:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
         }
 
         /* Menu lateral */
@@ -197,20 +188,14 @@
                 z-index: 1100;
             }
 
-            nav.open {
-                right: 0;
-            }
+            nav.open { right: 0; }
 
-            .menu-btn {
-                display: flex;
-            }
+            .menu-btn { display: flex; }
 
-            header {
-                justify-content: space-between;
-            }
+            header { justify-content: space-between; }
         }
 
-        /* Overlay (fundo escuro) */
+        /* Overlay */
         .overlay {
             display: none;
             position: fixed;
@@ -222,69 +207,50 @@
             z-index: 1050;
         }
 
-        .overlay.show {
-            display: block;
-        }
+        .overlay.show { display: block; }
     </style>
 </head>
 <body>
 
-    <!-- Cabeçalho fixo -->
     <header>
-        <a href="index.html">Início</a>
-        <a href="https://www.instagram.com/projetomasterclass.ifscslo/" target="_blank">Instagram</a>
-        <a href="páginas/time.html">Time</a>
-        <a href="https://home.cern/">CERN & Técnica</a>
-        <a href="páginas/resultados.html">Resultados</a>
-        <a href="">Inscrição</a>
-
-        <!-- Botão hambúrguer -->
-        <div id="menu-btn" class="menu-btn">
+        <div class="menu-btn" id="menu-btn">
             <div></div>
             <div></div>
             <div></div>
         </div>
-            <nav id="menu">
-                <a href="index.html">Início</a>
-                <a href="https://www.instagram.com/projetomasterclass.ifscslo/" target="_blank">Instagram</a>
-                <a href="páginas/time.html">Time</a>
-                <a href="https://home.cern/">CERN & Técnica</a>
-                <a href="páginas/resultados.html">Resultados</a>
-                <a href="">Inscrição</a>
-            </nav>
+
+        <nav id="menu">
+            <a href="index.html">Início</a>
+            <a href="https://www.instagram.com/projetomasterclass.ifscslo/" target="_blank">Instagram</a>
+            <a href="páginas/time.html">Time</a>
+            <a href="https://home.cern/">CERN & Técnica</a>
+            <a href="páginas/resultados.html">Resultados</a>
+            <a href="">Inscrição</a>
+        </nav>
     </header>
-    <!--Overlay-->
+
     <div id="overlay" class="overlay"></div>
 
-    <!-- Banner no topo -->
-    <section class="banner">
-       <!-- <div class="conteudo-banner">
-            <h1>Projeto Masterclass SLO</h1>
-            <p>Ciência, Tecnologia e Educação</p>
-        </div> -->
-    </section>  
+    <section class="banner"></section>  
 
-    <!-- Conteúdo principal -->
     <main>
         <section class="faixa-branca">
             <h1>Sobre o Projeto</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum tempora eum cupiditate, velit placeat eligendi temporibus doloremque, exercitationem quod incidunt porro voluptatum deserunt, magni ab. At quam expedita libero odit! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum blanditiis, dolorem ipsa assumenda repudiandae laborum minus. Rem harum quibusdam exercitationem at optio, natus dolorum, facere corrupti eos soluta qui sit? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur ex dicta quod nam hic fugit quas nulla quo, sequi minus assumenda architecto voluptatibus ullam consequuntur delectus earum magni provident! Saepe!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
         </section>
+
         <section class="faixa-branca">
             <h1>O que é a Masterclass?</h1>
-            <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis magni quia enim, consectetur nulla vitae veritatis adipisci eum exercitationem maiores laudantium delectus consequatur repellendus, nam perspiciatis placeat quidem quam dolorum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem nesciunt voluptates et ipsam debitis quibusdam ex ab repellat cum dolor ut, qui tempore, adipisci autem quam, consectetur suscipit iste id.</p>
+            <p>Lorem ipsum dolor sit amet consectetur...</p>
         </section>
 
         <div class="faixa-branca">
             <div class="conteudo-colunas">
                 <div class="texto">
-                    <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam blanditiis explicabo, recusandae ea nihil alias adipisci, ab autem illo ad doloremque magnam itaque excepturi dicta quo repellat quis repellendus? Officia.
-                    </p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
                 </div>
-                
                 <div class="botoes2">
-                    <a href="" class="botao2">Inscreva-se </a>
+                    <a href="" class="botao2">Inscreva-se</a>
                 </div>
             </div>
         </div>
@@ -292,22 +258,16 @@
         <div class="faixa-branca">
             <div class="conteudo-colunas">
                 <div class="texto">
-                    <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam blanditiis explicabo, recusandae ea nihil alias adipisci, ab autem illo ad doloremque magnam itaque excepturi dicta quo repellat quis repellendus? Officia.
-                    </p>
-                    <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae beatae aspernatur ratione eos sed. Nostrum odit dolor minus officiis natus totam, quod distinctio voluptas numquam, pariatur facilis nam, voluptate sunt!
-                    </p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
                 </div>
-                
                 <div class="botoes">
                     <a href="páginas/extras.html" class="botao">Saiba mais sobre o projeto</a>
                     <a href="páginas/time.html" class="botao">Saiba mais sobre nosso time</a>
-                    <a href="https://www.instagram.com/projetomasterclass.ifscslo/" class="botao">Instagram </a>
+                    <a href="https://www.instagram.com/projetomasterclass.ifscslo/" class="botao">Instagram</a>
                 </div>
             </div>
         </div>
-
     </main>
 
     <footer>
@@ -326,11 +286,13 @@
         menuBtn.addEventListener("click", () => {
             menu.classList.toggle("open");
             overlay.classList.toggle("show");
+            menuBtn.classList.toggle("active");
         });
 
         overlay.addEventListener("click", () => {
             menu.classList.remove("open");
             overlay.classList.remove("show");
+            menuBtn.classList.remove("active");
         });
     </script>
 
