@@ -8,7 +8,6 @@
     <title>Projeto Masterclass SLO</title>
 
 
-
     <style>
         body { 
             background-image: url('imagens/fundo_principal.png'); 
@@ -167,6 +166,10 @@
         }
 
         @media (max-width: 768px) {
+            .overlay.show{
+                display: block;
+                width: calc(100% - 240PX); /* deixa espaço pro menu lateral */
+            }
             nav {
                 position: fixed;
                 top: 0;
@@ -189,7 +192,7 @@
         }
 
         /* Overlay */
-        .overlay {
+       .overlay {
             display: none;
             position: fixed;
             top: 0;
@@ -291,4 +294,3 @@
 
 </body>
 </html>
-
