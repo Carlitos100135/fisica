@@ -16,8 +16,8 @@
 
     <style>
         body { 
-            background-image: url('imagens/fundo_principal.jpg'); 
-            background-size: auto; 
+            background-image: url('imagens/fundo_principal.png'); 
+            background-size: 180px; 
             background-position: center;
             background-repeat: repeat;
             margin: 0;
@@ -72,7 +72,7 @@
 
         /* Banner grande no topo */
         .banner {
-            background-image: url('imagens/logo.jpg '); /* Banner no topo */
+            background-image: url('imagens/logo.png '); /* Banner no topo */
             background-size: cover;
             background-position: center;
             height: 400px;
@@ -89,7 +89,7 @@
             border-radius: 8px;
         } */
 
-        /* Rodapé fixo */
+        /* Rodape*/
         footer {
             background-color: black;
             color: white;
@@ -111,6 +111,42 @@
         footer a:hover {
             color: #fff;
         }
+        .faixa-branca .conteudo-colunas {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start;
+    gap: 20px; /* Espaçamento entre colunas */
+    flex-wrap: wrap; /* Para funcionar em celular */
+}
+
+/* Coluna de texto */
+.faixa-branca .conteudo-colunas .texto {
+    flex: 1 1 60%; /* Ocupa maior parte da faixa */
+}
+
+/* Coluna de botões */
+.faixa-branca .conteudo-colunas .botoes {
+    flex: 1 1 35%; /* Ocupa espaço menor */
+    display: flex;
+    flex-direction: column; /* Botões um abaixo do outro */
+    gap: 10px; /* Espaçamento entre os botões */
+}
+
+/* Estilo dos botões */
+.faixa-branca .botoes .botao {
+    display: inline-block;
+    background-color: #2522e6;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.faixa-branca .botoes .botao:hover {
+    background-color: #1b19b3;
+}
     </style>
 </head>
 <body>
@@ -139,11 +175,33 @@
             <h1>Sobre o Projeto</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum tempora eum cupiditate, velit placeat eligendi temporibus doloremque, exercitationem quod incidunt porro voluptatum deserunt, magni ab. At quam expedita libero odit! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum blanditiis, dolorem ipsa assumenda repudiandae laborum minus. Rem harum quibusdam exercitationem at optio, natus dolorum, facere corrupti eos soluta qui sit? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur ex dicta quod nam hic fugit quas nulla quo, sequi minus assumenda architecto voluptatibus ullam consequuntur delectus earum magni provident! Saepe!</p>
         </section>
-        
+        <section class="faixa-branca">
+            <h1>O que é a Masterclass?</h1>
+            <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis magni quia enim, consectetur nulla vitae veritatis adipisci eum exercitationem maiores laudantium delectus consequatur repellendus, nam perspiciatis placeat quidem quam dolorum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem nesciunt voluptates et ipsam debitis quibusdam ex ab repellat cum dolor ut, qui tempore, adipisci autem quam, consectetur suscipit iste id.</p>
+        </section>
+
+
+        <div class="faixa-branca">
+            <div class="conteudo-colunas">
+                <div class="texto">
+                    <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam blanditiis explicabo, recusandae ea nihil alias adipisci, ab autem illo ad doloremque magnam itaque excepturi dicta quo repellat quis repellendus? Officia.
+                    </p>
+                    <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae beatae aspernatur ratione eos sed. Nostrum odit dolor minus officiis natus totam, quod distinctio voluptas numquam, pariatur facilis nam, voluptate sunt!
+                    </p>
+                </div>
+                
+                <div class="botoes">
+                    <a href="" class="botao">Saiba mais sobre o projeto</a>
+                    <a href="" class="botao">Veja aqui os livros dos encontros anteriores</a>
+                    <a href="" class="botao">Instagram </a>
+                </div>
+            </div>
+        </div>
 
     </main>
 
-    <!-- Rodapé fixo -->
     <footer>
         <p>
             <a href="https://www.ifsc.edu.br/en/web/campus-sao-lourenco-do-oeste" target="_blank">IFSC</a> |
