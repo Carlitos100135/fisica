@@ -6,8 +6,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/jpg" href="imagens/logo.jpg">
     <title>Projeto Masterclass SLO</title>
-    
-    <style>       
+<!--necessidades:
+- cabeçalho fixo com links para infos extras(instagram, info, inicio, descrição,);                  FAZIDO
+- rodapé no fim da pagina com mais infos extras(redirect pro ifsc, infos do cern,parte tecnica);    FAZIDO
+- página apresentando o time;
+- página apresentando o cern e parte tecnica;
+- página home com explicação básica do projeto e infos essenciais;                                  FAZIDO
+- página mostrando/explicando resultados já obtidos;
+- redict para inscrição no projeto/ algo semelhante -->
+
+    <style>
         body { 
             background-image: url('imagens/fundo_principal.png'); 
             background-size: 300px; 
@@ -163,6 +171,69 @@
             background-color: #1b19b3;
 
         }
+                /* Botão hambúrguer */
+        .menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .menu-btn div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+        }
+
+        /* Menu lateral */
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                position: fixed;
+                top: 0;
+                right: -220px;
+                height: 100%;
+                width: 200px;
+                background-color: #111;
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                transition: right 0.3s ease;
+                z-index: 1100;
+            }
+
+            nav.open {
+                right: 0;
+            }
+
+            .menu-btn {
+                display: flex;
+            }
+
+            header {
+                justify-content: space-between;
+            }
+        }
+
+        /* Overlay (fundo escuro) */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1050;
+        }
+
+        .overlay.show {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -239,6 +310,21 @@
         </p>
     </footer>
 
+    <script>
+        const menuBtn = document.getElementById("menu-btn");
+        const menu = document.getElementById("menu");
+        const overlay = document.getElementById("overlay");
+
+        menuBtn.addEventListener("click", () => {
+            menu.classList.toggle("open");
+            overlay.classList.toggle("show");
+        });
+
+        overlay.addEventListener("click", () => {
+            menu.classList.remove("open");
+            overlay.classList.remove("show");
+        });
+    </script>
+
 </body>
 </html>
-
