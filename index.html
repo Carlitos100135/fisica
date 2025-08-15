@@ -5,19 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <title>Projeto Masterclass SLO</title>
-<!--necessidades:
-- cabeçalho fixo com links para infos extras(instagram, info, inicio, descrição,);                  FAZIDO
-- rodapé no fim da pagina com mais infos extras(redirect pro ifsc, infos do cern,parte tecnica);    FAZIDO
-- página apresentando o time;
-- página apresentando o cern e parte tecnica;
-- página home com explicação básica do projeto e infos essenciais;                                  FAZIDO
-- página mostrando/explicando resultados já obtidos;
-- redict para inscrição no projeto/ algo semelhante -->
-
-    <style>
+    
+    <style>       
         body { 
             background-image: url('imagens/fundo_principal.png'); 
-            background-size: 180px; 
+            background-size: 300px; 
             background-position: center;
             background-repeat: repeat;
             margin: 0;
@@ -111,42 +103,65 @@
         footer a:hover {
             color: #fff;
         }
+        
         .faixa-branca .conteudo-colunas {
-    display: flex;
-    justify-content: space-between; 
-    align-items: flex-start;
-    gap: 20px; /* Espaçamento entre colunas */
-    flex-wrap: wrap; /* Para funcionar em celular */
-}
+            display: flex;
+            justify-content: space-between; 
+            align-items: stretch;
+            gap: 20px; /* Espaçamento entre colunas */
+            flex-wrap: wrap; /* Para funcionar em celular */
+        }
 
-/* Coluna de texto */
-.faixa-branca .conteudo-colunas .texto {
-    flex: 1 1 60%; /* Ocupa maior parte da faixa */
-}
+        /* Coluna de texto */
+        .faixa-branca .conteudo-colunas .texto {
+            flex: 1 1 60%; /* Ocupa maior parte da faixa */
+        }
 
-/* Coluna de botões */
-.faixa-branca .conteudo-colunas .botoes {
-    flex: 1 1 35%; /* Ocupa espaço menor */
-    display: flex;
-    flex-direction: column; /* Botões um abaixo do outro */
-    gap: 10px; /* Espaçamento entre os botões */
-}
+        /* Coluna de botões */
+        .faixa-branca .conteudo-colunas .botoes {
+            flex: 1 1 35%; /* tamanho do botão(horizontal) */
+            display: flex;
+            flex-direction: column; /* Botões um abaixo do outro */
+            gap: 10px; /* Espaçamento entre os botões */
+        }
 
-/* Estilo dos botões */
-.faixa-branca .botoes .botao {
-    display: inline-block;
-    background-color: #2522e6;
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    text-align: center;
-    transition: background-color 0.3s;
-}
+        .faixa-branca .conteudo-colunas .botoes2 {
+            flex: 1 1 35%; 
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            justify-content: center;
 
-.faixa-branca .botoes .botao:hover {
-    background-color: #1b19b3;
-}
+        }
+
+        /* Estilo dos botões */
+        .faixa-branca .botoes .botao {
+            display: inline-block;
+            background-color: #2522e6;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        
+        .faixa-branca .botoes2 .botao2 {
+            display: inline-block;
+            background-color: #2522e6;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+
+        .faixa-branca .botoes .botao:hover {
+            background-color: #1b19b3;
+
+        }
     </style>
 </head>
 <body>
@@ -180,6 +195,19 @@
             <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis magni quia enim, consectetur nulla vitae veritatis adipisci eum exercitationem maiores laudantium delectus consequatur repellendus, nam perspiciatis placeat quidem quam dolorum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem nesciunt voluptates et ipsam debitis quibusdam ex ab repellat cum dolor ut, qui tempore, adipisci autem quam, consectetur suscipit iste id.</p>
         </section>
 
+        <div class="faixa-branca">
+            <div class="conteudo-colunas">
+                <div class="texto">
+                    <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam blanditiis explicabo, recusandae ea nihil alias adipisci, ab autem illo ad doloremque magnam itaque excepturi dicta quo repellat quis repellendus? Officia.
+                    </p>
+                </div>
+                
+                <div class="botoes2">
+                    <a href="" class="botao2">Inscreva-se </a>
+                </div>
+            </div>
+        </div>
 
         <div class="faixa-branca">
             <div class="conteudo-colunas">
