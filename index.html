@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="imagens/icone.ico">
+    <title>Projeto Masterclass SLO</title>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }    
+        html, body {
+            overflow-x: hidden;
+        }
+        body {
+            background-color: #083e77;
+            background-size: contain; 
+            background-position: center;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            padding-top: 60px;
+            padding: 0;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        ::-webkit-scrollbar {
+            display: none;
+        }
+       
+        header {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 97.5%;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 1px solid #ddd;
+            z-index: 1000;
+            transition: background-color 0.2s ease;
+            border: none;
+        }
+    
+        header a {
+            text-decoration: none;
+            color: white; 
+            font-size: 15px;
+            transition: color 0.3s;
+            font-family: "Lora", serif;
+        }
+
+        header a:hover {
+            color: #3082a1;
+        }
+
+        header.transparent {
+            background-color: transparent;
+            color: white;
+        }
+        header.solid {
+            background-color: black;
+            color: #fff; 
+        }
+
+        main {
+            margin-top: 20px;
+            flex: 1;
+            padding: 10px;
+        }
+
+        .faixa-branca {
+            background-color: white;
+            padding: 40px 20px;
+            margin: 40px auto;
+            max-width: 1200px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        #banner {
+            background-image: url('imagens/banner2.png');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;         
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        /* Estilo para mobile */
+        @media (max-width: 768px){
+            #banner {
+                height: 200px;
+                background-size: contain;
+            }
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        footer a {
+            color: #ddd;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+        .container-footer {
+            display: flex; 
+            align-items: center;
+            gap: 25px; /* Espaço entre as colunas */
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .coluna-esquerda-footer img {  
+            width: 250px; 
+            border-radius: 10px;
+        }
+        .coluna-direita {
+            flex: 1;
+        }
+        @media (max-width: 768px) {
+            .container-footer {
+                flex-direction: column;
+                text-align: center;            
+            }
+            .coluna-esquerda-footer img {
+                width: 100%*1;
+            }
+            .texto-footer {
+                text-align: center;
+            }
+        }
+        .texto-footer {
+            text-align: left;
+            
+        }
+        
+        .conteudo-colunas {
+            display: flex;
+            justify-content: space-between; 
+            align-items: stretch;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .texto { flex: 1 1 60%; }
+
+        .botoes, .botoes2 {
+            flex: 1 1 35%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .botao, .botao2 {
+            display: inline-block;
+            background-color: #3082a1;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+
+        .botao:hover, .botao2:hover {
+            background-color: #081d36;
+        }
+
+        /* Botão hambúrguer */
+        .menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-btn div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        /* Animação para virar X */
+        .menu-btn.active div:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-btn.active div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-btn.active div:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Menu lateral */
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .overlay.show{
+                display: block;
+                width: calc(100% - 240px);
+            }
+            nav {
+                position: fixed;
+                top: 0;
+                right: -220px;
+                height: 100%;
+                width: 200px;
+                background-color: #111;
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                transition: right 0.3s ease;
+                z-index: 1100;
+            }
+
+            nav.open { right: 0; }
+
+            .menu-btn { display: flex; }
+
+            header { justify-content: space-between; }
+        }
+
+       .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1050;
+        }
+
+        .overlay.show { display: block; }
+
+        .post {
+            position: relative;
+            width: 80%;
+            max-width: 550px;
+            margin: auto;
+            overflow: hidden;
+            background: white;
+            border-radius: 10px;
+        }
+        .post-count {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .post-count img {
+            flex: 0 0 100%;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+        .post button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            font-size: 30px;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 100;
+        }
+        .post .prev { left: 10px; }
+        .post .next { right: 10px; }
+        .post button:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        
+    </style>
+</head>
+<body>
+
+    <header id="header" class="transparent">
+        <div class="menu-btn" id="menu-btn">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <nav id="menu">
+            <a href="index.html">Início</a>
+            <a href="https://www.instagram.com/projetomasterclass.ifscslo/" target="_blank">Instagram</a>
+            <a href="páginas/time.html">Time</a>
+            <a href="https://home.cern/" target="_blank">CERN & Técnica</a>
+            <!-- <a href="páginas/resultados.html">Resultados</a> -->
+            <a href="páginas/extras.html#info-inscrição">Inscrição</a>
+        </nav>
+    </header>
+
+    <div id="overlay" class="overlay"></div>
+
+
+    <section id="banner" class="banner"></section>  
+
+    <main>
+        
+        <div class="post">
+            <button id="prev" class="prev">&#10094;</button>
+
+            <div class="post-count">
+                <img src="imagens/post1.png" alt="post1">
+                <img src="imagens/post2.png" alt="post2">
+                <img src="imagens/post3.png" alt="post3">
+                <img src="imagens/post4.png" alt="post4">
+                <img src="imagens/post5.png" alt="post5">   
+                <img src="imagens/post6.png" alt="post6">
+                <img src="imagens/post7.png" alt="post7">
+            </div>
+
+            <button id="next" class="next">&#10095;</button>
+        </div>
+
+        <!--caixa 1 -->
+        <section class="faixa-branca">
+            <h1> O Que é a MasterClass?</h1>
+            <p>A <strong><i>International Physics Masterclasses</i></strong> é um projeto educacional internacional ligado ao <strong>CERN</strong> e coordenado pelo <b>IPPOG</b>. Ele é voltado principalmente para estudantes do ensino médio e professores, buscando aproximá-los do ambiente de pesquisa em física de partículas.</p>
+            <p>Durante a masterclass, os participantes recebem palestras introdutórias sobre o Modelo Padrão, aceleradores e detectores de partículas, além de conhecer como funciona a pesquisa científica em grandes colaborações como as do LHC.</p>
+        </section>
+        <!--caixa 2 -->
+        <section class="faixa-branca">
+            <h1>Sobre o Projeto</h1>
+            <p>O projeto traz como principal objetivo o de permitir que os estudantes vivenciem na prática o trabalho de pesquisadores em <b>física de partículas</b>. Seja analizando dados reais de detectores do CERN, interpretando resultados ou discutindo suas conclusões com colegas e cientistas, simulando assim o ambiente colaborativo de grandes experimentos.</p>
+            <p>Essas atividades práticas ajudam a transformar o conhecimento teórico em experiência concreta, estimulando habilidades de raciocínio crítico, comunicação e colaboração para todos os envolvidos.</p>
+        </section>
+        <!--caixe 3 -->
+        <div class="faixa-branca">
+            <div class="conteudo-colunas">
+                <div class="texto">
+                    <h1>Incrições</h1>
+                    <p>Atualmente os periodos de incrições <b>não foram iniciados</b>, porém as inscrições serão feitas com base em um formulário de inscrição disponibilizado neste site. </p>
+                </div>
+                <div class="botoes2">
+                    <a href="páginas/extras.html#info-inscrição" class="botao2">Inscreva-se</a>
+                </div>
+            </div>
+        </div>
+        <!--caixa 4 -->
+        <div class="faixa-branca">
+            <div class="conteudo-colunas">
+                <div class="texto">
+                    <h3>Ficou curioso sobre algo ou empolgado com o projeto?</h3>
+                    <p>Acesse mais informações logo ao lado</p>
+                </div>
+                <div class="botoes">
+                    <a href="páginas/extras.html" class="botao">Saiba mais sobre o projeto</a>
+                    <a href="páginas/time.html" class="botao">Saiba mais sobre nosso time</a>
+                    <a href="https://www.instagram.com/projetomasterclass.ifscslo/" class="botao">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<footer>
+        <div class="container-footer">
+            <div class="coluna-esquerda-footer">
+                <img src="imagens/logo_ifsc.png" alt="logo ifsc">
+                <p>Acesse o site do ifsc</p>
+                    
+            </div>
+            <div class="coluna-direita-footer">
+                <p>
+                    <a href="https://www.ifsc.edu.br/en/web/campus-sao-lourenco-do-oeste" target="_blank">IFSC</a>
+                    <span>|</span>
+                    <a href="https://home.cern/" target="_blank">Sobre o CERN</a>
+                    <span>|</span> 
+                    <a href="https://sprace.org.br/" target="_blank">Sprace</a>
+                    <span>|</span>
+                    <a href="https://renafae.cbpf.br/" target="_blank">Renafae</a>
+                    <span>|</span>
+                    <a href="https://www.lip.pt/" target="_blank">Lip.pt</a>
+                </p>
+                <div class="texto-footer">
+                    <p>Contatos: (49) 3197-8455</p>
+                    <p>(49) 99936-0172 (<a href="https://wa.me/5549999360172" target="_blank">WhatsApp</a>)</p>
+                </div>
+            </div>
+        <div>
+    </footer>
+
+    <script>
+        /* menu hamburguer */
+        const menuBtn = document.getElementById("menu-btn");
+        const menu = document.getElementById("menu");
+        const overlay = document.getElementById("overlay");
+
+        menuBtn.addEventListener("click", () => {
+            menu.classList.toggle("open");
+            overlay.classList.toggle("show");
+            menuBtn.classList.toggle("active");
+        });
+
+        overlay.addEventListener("click", () => {
+            menu.classList.remove("open");
+            overlay.classList.remove("show");
+            menuBtn.classList.remove("active");
+        });
+
+        /* slides */
+        const container = document.querySelector('.post-count');
+        const slides = document.querySelectorAll('.post-count img');
+        let index = 0;
+
+        function showSlide(i) {
+            if (i < 0) index = slides.length - 1;
+            else if (i >= slides.length) index = 0;
+            else index = i;
+
+            container.style.transform = `translateX(${-index * 100}%)`;
+        }
+
+        document.getElementById('prev').addEventListener('click', () => showSlide(index - 1));
+        document.getElementById('next').addEventListener('click', () => showSlide(index + 1));
+
+        showSlide(0);
+
+        /* header coisado */
+        const header = document.getElementById("header");
+        const banner = document.getElementById("banner");
+
+        function atualizarHeader() {
+            const bannerBottom = banner.offsetHeight;
+            if (window.scrollY >= bannerBottom) {
+                header.classList.remove("transparent");
+                header.classList.add("solid");
+            } else {
+                header.classList.remove("solid");
+                header.classList.add("transparent");
+            }
+        }
+
+        window.addEventListener("scroll", atualizarHeader);
+        window.addEventListener("load", atualizarHeader);
+    </script>
+
+</body>
+</html>
