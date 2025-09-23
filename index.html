@@ -1,4 +1,3 @@
-<!---->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -86,7 +85,7 @@
 
         #banner {
             background-image: url('imagens/banner2.png');
-            background-size: cover;
+            background-size: contain;
             background-position: center;
             height: 400px;
             display: flex;         
@@ -99,7 +98,7 @@
         /* Estilo para mobile */
         @media (max-width: 768px){
             #banner {
-                height: 200px;
+                height: 150px;
                 background-size: contain;
             }
         }
@@ -148,7 +147,7 @@
                 width: 100%;
             }
             .texto-footer {
-                text-align: center;
+                text-align: center
             }
         }
         .texto-footer {
@@ -251,7 +250,7 @@
             header { justify-content: space-between; }
         }
 
-       .overlay {
+        .overlay {
             display: none;
             position: fixed;
             top: 0;
@@ -316,7 +315,8 @@
         <nav id="menu">
             <a href="index.html">Início</a>
             <a href="https://www.instagram.com/projetomasterclass.ifscslo/" target="_blank">Instagram</a>
-            <a href="páginas/time.html">Time</a>
+           <!-- <a href="páginas/time.html">Time</a> -->
+            <a href="páginas/materais.html">Materiais</a>
             <a href="https://home.cern/" target="_blank">CERN & Técnica</a>
             <!-- <a href="páginas/resultados.html">Resultados</a> -->
             <a href="páginas/extras.html#info-inscrição">Inscrição</a>
@@ -340,7 +340,8 @@
                 <img src="imagens/post4.png" alt="post4">
                 <img src="imagens/post5.png" alt="post5">   
                 <img src="imagens/post6.png" alt="post6">
-                <img src="imagens/post7.png" alt="post7">
+                <img src="imagens/post1.png" alt="post7">
+
             </div>
 
             <button id="next" class="next">&#10095;</button>
@@ -380,22 +381,22 @@
                 <div class="botoes">
                     <a href="páginas/extras.html" class="botao">Saiba mais sobre o projeto</a>
                     <a href="páginas/time.html" class="botao">Saiba mais sobre nosso time</a>
-                    <a href="https://www.instagram.com/projetomasterclass.ifscslo/" class="botao">Instagram</a>
+                    <a href="https://www.instagram.com/projetomasterclass.ifscslo/" class="botao">Confira nosso Instagram</a>
                 </div>
             </div>
         </div>
     </main>
 
-<footer>
+    <footer>
         <div class="container-footer">
             <div class="coluna-esquerda-footer">
-                <img src="imagens/logo_ifsc.png" alt="logo ifsc">
+                <a href="https://www.ifsc.edu.br/en/web/campus-sao-lourenco-do-oeste" target="_blank">
+                    <img src="imagens/logo_ifsc.png" alt="logo ifsc">
+                </a>
                 <p>Acesse o site do ifsc</p>
-                    
             </div>
             <div class="coluna-direita-footer">
                 <p>
-                   <!-- <a href="https://www.ifsc.edu.br/en/web/campus-sao-lourenco-do-oeste" target="_blank">IFSC</a> -->
                     <a href="https://home.cern/" target="_blank">Sobre o CERN</a>
                     <span>|</span> 
                     <a href="https://sprace.org.br/" target="_blank">Sprace</a>
@@ -405,8 +406,9 @@
                     <a href="https://www.lip.pt/" target="_blank">Lip.pt</a>
                 </p>
                 <div class="texto-footer">
-                    <p>Contatos: (49) 3197-8455</p>
-                    <p>(49) 99936-0172 (<a href="https://wa.me/5549999360172" target="_blank">WhatsApp</a>)</p>
+                    <p>Contatos: <a href="https://www.instagram.com/projetomasterclass.ifscslo/" target="_blank">
+                        <img src="imagens/logo_insta.png" alt="instagram" width="50px" height="50px" style="vertical-align: middle; width: 50px;">
+                    </a> </p>
                 </div>
             </div>
         <div>

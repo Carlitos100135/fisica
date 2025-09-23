@@ -87,7 +87,7 @@
 
         #banner {
             background-image: url('../imagens/banner2.png');
-            background-size: cover;
+            background-size: contain;
             background-position: center;
             height: 400px;
             display: flex;         
@@ -99,9 +99,9 @@
 
         /* Estilo para mobile */
         @media (max-width: 768px){
-        .banner {
-            height: 200px;
-            background-size: contain;
+            #banner {
+                height: 150px;
+                background-size: contain;
             }
         }
 
@@ -149,7 +149,7 @@
                 width: 100%;
             }
             .texto-footer {
-                text-align: center;
+                text-align: center
             }
         }
         .texto-footer {
@@ -233,18 +233,21 @@
 </head>
 <body>
 
-    <header id="header" class="transparent">
+<header id="header" class="transparent">
         <div class="menu-btn" id="menu-btn">
-            <div></div><div></div><div></div>
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
 
         <nav id="menu">
             <a href="../index.html">Início</a>
             <a href="https://www.instagram.com/projetomasterclass.ifscslo/" target="_blank">Instagram</a>
-            <a href="../páginas/time.html">Time</a>
+           <!-- <a href="../páginas/time.html">Time</a> -->
+            <a href="../páginas/materais.html">Materiais</a>
             <a href="https://home.cern/" target="_blank">CERN & Técnica</a>
-       <!--     <a href="../páginas/resultados.html">Resultados</a> -->
-            <a href="#info-inscrição">Inscrição</a>
+            <!-- <a href="../páginas/resultados.html">Resultados</a> -->
+            <a href="../páginas/extras.html#info-inscrição">Inscrição</a>
         </nav>
     </header>
 
@@ -274,14 +277,14 @@
 <footer>
         <div class="container-footer">
             <div class="coluna-esquerda-footer">
-                <img src="../imagens/logo_ifsc.png" alt="logo ifsc">
+                <a href="https://www.ifsc.edu.br/en/web/campus-sao-lourenco-do-oeste" target="_blank">
+                    <img src="../imagens/logo_ifsc.png" alt="logo ifsc">
+                </a>
                 <p>Acesse o site do ifsc</p>
                     
             </div>
             <div class="coluna-direita-footer">
                 <p>
-                  <!--  <a href="https://www.ifsc.edu.br/en/web/campus-sao-lourenco-do-oeste" target="_blank">IFSC</a> -->
-                   
                     <a href="https://home.cern/" target="_blank">Sobre o CERN</a>
                     <span>|</span> 
                     <a href="https://sprace.org.br/" target="_blank">Sprace</a>
@@ -291,8 +294,9 @@
                     <a href="https://www.lip.pt/" target="_blank">Lip.pt</a>
                 </p>
                 <div class="texto-footer">
-                    <p>Contatos: (49) 3197-8455</p>
-                    <p>(49) 99936-0172 (<a href="https://wa.me/5549999360172" target="_blank">WhatsApp</a>)</p>
+                    <p>Contatos: <a href="https://www.instagram.com/projetomasterclass.ifscslo/" target="_blank">
+                        <img src="../imagens/logo_insta.png" alt="instagram" width="50px" height="50px" style="vertical-align: middle; width: 50px;">
+                    </a> </p>
                 </div>
             </div>
         <div>
