@@ -233,6 +233,37 @@
     }
 
     .overlay.show { display: block; }
+
+    .resumo-colunas {
+      display: flex; 
+      align-items: center;
+      gap: 20px; /* Espaço entre as colunas */
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    .coluna1 {
+      background-color: black;
+      width: 300px;
+      height: 300px;
+    }
+    .coluna2 {
+      background-color: black;
+      width: 300px;
+      height: 300px;
+    }
+    .coluna3 {
+      background-color: black;
+      width: 300px;
+      height: 300px;
+    }
+    @media (max-width: 768px) {
+      .resumo-colunas {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+    
   </style>
 </head>
 <body>
@@ -272,9 +303,11 @@
     <section class="faixa-branca">
       <h1>Orbita</h1>
       <p>Aqui estão algumas informações adicionais que nos permitem aprofundar ainda mais</p>
-      <a href="#">site do cern</a></br>
-      <a href="#">artigo cientifico x</a></br>
-      <a href="#">artigo cientifico sobre y</a></br>
+      <div class="resumo-colunas">
+        <div class="coluna1"><a href="#">site do cern</a></br></div>
+        <div class="coluna2"><a href="#">artigo cientifico x</a></br></div>
+        <div class="coluna3"><a href="#">artigo cientifico sobre y</a></br>
+      </div>  
     </section>
     <section class="faixa-branca">
       <h1>Particulas adicionais</h1>
