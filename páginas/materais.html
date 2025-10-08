@@ -1,387 +1,521 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/x-icon" href="../imagens/icone.ico">
-  <title>Materiais</title>
-  <style>
-    html {
-        scroll-behavior: smooth;
-    }    
-    html, body {
-      overflow-x: hidden;
-    }
-    body {
-      background-color: #083e77;
-      background-size: contain; 
-      background-position: center;
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      padding-top: 60px;
-      padding: 0;
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-    ::-webkit-scrollbar {
-      display: none;
-    }
-    
-    header {
-      position: fixed; 
-      top: 0;
-      left: 0;
-      width: 97.5%;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 20px;
-      border-bottom: 1px solid #ddd;
-      z-index: 1000;
-      transition: background-color 0.2s ease;
-      border: none;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../imagens/icone.ico">
+    <title>Materiais</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
 
-    header a {
-      text-decoration: none;
-      color: white; 
-      font-size: 15px;
-      transition: color 0.3s;
-      font-family: "Lora", serif;
-    }
+        html,
+        body {
+            overflow-x: hidden;
+        }
 
-    header a:hover {
-      color: #3082a1;
-    }
-
-    header.transparent {
-      background-color: transparent;
-      color: white;
-    }
-    header.solid {
-      background-color: black;
-      color: #fff; 
-    }
-
-    main {
-      margin-top: 20px;
-      flex: 1;
-      padding: 10px;
-    }
-
-    .faixa-branca {
-      background-color: white;
-      padding: 40px 20px;
-      margin: 40px auto;
-      max-width: 1200px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      border-radius: 8px;
-    }
-
-    #banner {
-      background-image: url('../imagens/banner2.png');
-      background-size: contain;
-      background-position: center;
-      height: 400px;
-      display: flex;         
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-align: center;
-    }
-
-    /* Estilo para mobile */
-    @media (max-width: 768px){
-      #banner {
-        height: 150px;
-        background-size: contain;
-      }
-    }
-
-    footer {
-      background-color: black;
-      color: white;
-      padding: 15px 20px;
-      text-align: center;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-    }
-
-    footer a {
-        color: #ddd;
-        margin: 0 10px;
-        text-decoration: none;
-    }
-
-    footer a:hover {
-        color: #fff;
-    }
-    .container-footer {
-        display: flex; 
-        align-items: center;
-        gap: 25px; /* Espaço entre as colunas */
-        max-width: 900px;
-        margin: auto;
-        padding: 20px;
-    }
-    .coluna-esquerda-footer img {  
-        width: 250px; 
-        border-radius: 10px;
-    }
-    .coluna-direita {
-        flex: 1;
-    }
-    @media (max-width: 768px) {
-        .container-footer {
+        body {
+            background-color: #083e77;
+            background-size: contain;
+            background-position: center;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            display: flex;
             flex-direction: column;
-            text-align: center;            
+            padding-top: 60px;
+            padding: 0;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
-        .coluna-esquerda-footer img {
-            width: 100%;
+
+        ::-webkit-scrollbar {
+            display: none;
         }
-        .texto-footer {
-            text-align: center
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 97.5%;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 1px solid #ddd;
+            z-index: 1000;
+            transition: background-color 0.2s ease;
+            border: none;
         }
-    }
-    .texto-footer {
-        text-align: left;
-        
-    }
-    .faixa-branca {
+
+        header a {
+            text-decoration: none;
+            color: white;
+            font-size: 15px;
+            transition: color 0.3s;
+            font-family: "Lora", serif;
+        }
+
+        header a:hover {
+            color: #3082a1;
+        }
+
+        header.transparent {
+            background-color: transparent;
+            color: white;
+        }
+
+        header.solid {
+            background-color: black;
+            color: #fff;
+        }
+
+        main {
+            margin-top: 20px;
+            flex: 1;
+            padding: 10px;
+        }
+
+        .faixa-branca {
             background-color: white;
             padding: 40px 20px;
             margin: 40px auto;
             max-width: 1200px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
         }
-    .menu-btn {
-        display: none;
-        flex-direction: column;
-        gap: 5px;
-        cursor: pointer;
-        transition: transform 0.3s ease;
-    }
 
-    .menu-btn div {
-        width: 25px;
-        height: 3px;
-        background-color: white;
-        transition: all 0.3s ease;
-    }
+        #banner {
+            background-image: url('../imagens/banner2.png');
+            background-size: contain;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
 
-    /* Animação para virar X */
-    .menu-btn.active div:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
+        /* Estilo para mobile */
+        @media (max-width: 768px) {
+            #banner {
+                height: 150px;
+                background-size: contain;
+            }
+        }
 
-    .menu-btn.active div:nth-child(2) {
-        opacity: 0;
-    }
+        footer {
+            background-color: black;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
 
-    .menu-btn.active div:nth-child(3) {
-        transform: rotate(-45deg) translate(6px, -6px);
-    }
+        footer a {
+            color: #ddd;
+            margin: 0 10px;
+            text-decoration: none;
+        }
 
-    /* Menu lateral */
-    nav {
-        display: flex;
-        gap: 20px;
-    }
+        footer a:hover {
+            color: #fff;
+        }
 
-    @media (max-width: 768px) {
-      .overlay.show{
-          display: block;
-          width: calc(100% - 240px);
-      }
-      nav {
-        position: fixed;
-        top: 0;
-        right: -220px;
-        height: 100%;
-        width: 200px;
-        background-color: #111;
-        flex-direction: column;
-        padding: 20px;
-        gap: 15px;
-        transition: right 0.3s ease;
-        z-index: 1100;
-      }
+        .container-footer {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            /* Espaço entre as colunas */
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
 
-      nav.open { right: 0; }
+        .coluna-esquerda-footer img {
+            width: 250px;
+            border-radius: 10px;
+        }
 
-      .menu-btn { display: flex; }
+        .coluna-direita {
+            flex: 1;
+        }
 
-      header { justify-content: space-between; }
-    }
-    .overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 1050;
-    }
+        @media (max-width: 768px) {
+            .container-footer {
+                flex-direction: column;
+                text-align: center;
+            }
 
-    .overlay.show { display: block; }
+            .coluna-esquerda-footer img {
+                width: 100%;
+            }
 
-    .resumo-colunas {
-      display: flex; 
-      align-items: center;
-      gap: 20px; /* Espaço entre as colunas */
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-    }
-    .coluna1 {
-      background-color: black;
-      width: 300px;
-      height: 300px;
-    }
-    .coluna2 {
-      background-color: black;
-      width: 300px;
-      height: 300px;
-    }
-    .coluna3 {
-      background-color: black;
-      width: 300px;
-      height: 300px;
-    }
-    @media (max-width: 768px) {
-      .resumo-colunas {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
-    
-  </style>
+            .texto-footer {
+                text-align: center
+            }
+        }
+
+        .texto-footer {
+            text-align: left;
+        }
+
+        .faixa-branca {
+            background-color: white;
+            padding: 40px 20px;
+            margin: 40px auto;
+            max-width: 1200px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-btn div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        /* Animação para virar X */
+        .menu-btn.active div:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-btn.active div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-btn.active div:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Menu lateral */
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .overlay.show {
+                display: block;
+                width: calc(100% - 240px);
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                right: -220px;
+                height: 100%;
+                width: 200px;
+                background-color: #111;
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                transition: right 0.3s ease;
+                z-index: 1100;
+            }
+
+            nav.open {
+                right: 0;
+            }
+
+            .menu-btn {
+                display: flex;
+            }
+
+            header {
+                justify-content: space-between;
+            }
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1050;
+        }
+
+        .overlay.show {
+            display: block;
+        }
+        .texto {
+            text-align: left;
+        }
+        /*os links em geral*/
+        .links {
+            flex: 1 1 35%;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            justify-content: center;
+        }
+
+        .link {
+            display: inline-block;
+            background-color: #3082a1;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        /*quando passar o mouse em cima do link*/
+        .link a:hover {
+            color: #083e77;
+        }
+        .carrossel-seta {
+            position: relative;
+            width: 960px;
+            margin: 20px auto;
+            overflow: visible; /* as setas podem sair para fora */
+        }
+
+        .carrossel-container {
+            position: relative;
+            width: 960px; /* 3 colunas de 300px + 2 gaps de 30px */
+            margin: 20px auto;
+            overflow: hidden;
+        }
+        .carrossel {
+            display: flex;
+            gap: 30px;
+            transition: transform 0.5s ease;
+        }
+        .coluna {
+            flex: 0 0 290px;
+            height: 280px;
+            background-color: #3082a1;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-radius: 8px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        .coluna:hover {
+            background-color: #3081a1;
+            transform: scale(1.15);
+            z-index: 5;
+        }
+        .seta {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+            z-index: 10;
+            transition: background-color 0.3s;
+        }
+        .seta:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        .seta.esquerda {
+            left: -30px;
+        }
+        .seta.direita {
+            right: -20px;
+        }
+    </style>
 </head>
+
 <body>
-  <header id="header" class="transparent">
-    <div class="menu-btn" id="menu-btn">
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-
-    <nav id="menu">
-      <a href="../index.html">Início</a>
-      <a href="https://www.instagram.com/projetomasterclass.ifscslo/" target="_blank">Instagram</a>
-      <!-- <a href="páginas/time.html">Time</a> -->
-      <a href="../páginas/materais.html">Materiais</a>
-      <a href="https://home.cern/" target="_blank">CERN & Técnica</a>
-      <!-- <a href="páginas/resultados.html">Resultados</a> -->
-      <a href="../páginas/extras.html#info-inscrição">Inscrição</a>
-    </nav>
-  </header>
-
-  <div id="overlay" class="overlay"></div>
-
-
-  <section id="banner" class="banner"></section>
-
-  <main>
-    <h1 style="text-align: center; color: white;">Nossa Trilha de Conhecimento</h1>
-    <h3 style="text-align: center; color: white;">As referências que sustentaram este projeto e caminhos para quem quiser explorar mais.</h3>
-    <section class="faixa-branca">
-      <h1>Nucleo</h1>
-      <p>Nesta parte se encontram as principais referencias utilizadas para nosso projeto</p>
-      <a href="#">site do cern</a></br>
-      <a href="#">artigo cientifico x</a></br>
-      <a href="#">artigo cientifico sobre y</a></br>
-    </section>
-    <section class="faixa-branca">
-      <h1>Orbita</h1>
-      <p>Aqui estão algumas informações adicionais que nos permitem aprofundar ainda mais</p>
-      <div class="resumo-colunas">
-        <div class="coluna1"><a href="#">site do cern</a></br></div>
-        <div class="coluna2"><a href="#">artigo cientifico x</a></br></div>
-        <div class="coluna3"><a href="#">artigo cientifico sobre y</a></br>
-      </div>  
-    </section>
-    <section class="faixa-branca">
-      <h1>Particulas adicionais</h1>
-      <p>Ficou curioso sobre algo ou com vontade de "quero mais"? Aqui estão algumas curiosidades para você</p>
-      <a href="#">site do cern</a></br>
-      <a href="#">artigo cientifico x</a></br>
-      <a href="#">artigo cientifico sobre y</a></br>
-    </section>
-    <!-- sugestões: tópico 1( Nucleo, fontes e materiais indispensavéis)
-                    tópico 2( orbita, cards alinhados de ladinho com as informações adicionais e aprofundamento)
-                    tópico 3( particulas secundarias, bagulhos extras, curiosidades e etc)
-                    semi rodapé( frase de efeito + convite de participação e contato e chance de contribuição)-->
-  </main>
-  <h3 style="text-align: left; color: white; background-color: black; padding: 15px;">A jornada do conhecimento nunca termina. Compartilhe conosco novos materiais e vamos crescer juntos</h3>
-  <footer>
-    <div class="container-footer">
-      <div class="coluna-esquerda-footer">
-        <a href="https://www.ifsc.edu.br/en/web/campus-sao-lourenco-do-oeste" target="_blank">
-          <img src="../imagens/logo_ifsc.png" alt="logo ifsc">
-        </a>
-        <p>Acesse o site do ifsc</p>    
-      </div>
-      <div class="coluna-direita-footer">
-        <p>
-          <a href="https://home.cern/" target="_blank">Sobre o CERN</a>
-          <span>|</span> 
-          <a href="https://sprace.org.br/" target="_blank">Sprace</a>
-          <span>|</span>
-          <a href="https://renafae.cbpf.br/" target="_blank">Renafae</a>
-          <span>|</span>
-          <a href="https://www.lip.pt/" target="_blank">Lip.pt</a>
-        </p>
-        <div class="texto-footer">
-          <p>Contatos: <a href="https://www.instagram.com/projetomasterclass.ifscslo/" target="_blank">
-              <img src="../imagens/logo_insta.png" alt="instagram" width="50px" height="50px" style="vertical-align: middle; width: 50px;">
-          </a> </p>
+    <header id="header" class="transparent">
+        <div class="menu-btn" id="menu-btn">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
-      </div>
-    <div>
-  </footer>
-  <script>
-    /* menu hamburguer */
-    const menuBtn = document.getElementById("menu-btn");
-    const menu = document.getElementById("menu");
-    const overlay = document.getElementById("overlay");
 
-    menuBtn.addEventListener("click", () => {
-      menu.classList.toggle("open");
-      overlay.classList.toggle("show");
-      menuBtn.classList.toggle("active");
-    });
+        <nav id="menu">
+            <a href="../index.html">Início</a>
+            <a href="https://www.instagram.com/projetomasterclass.ifscslo/" target="_blank">Instagram</a>
+            <a href="../páginas/time.html">Time</a>
+            <a href="../páginas/materais.html">Materiais</a>
+            <a href="https://home.cern/" target="_blank">CERN & Técnica</a>
+            <!-- <a href="páginas/resultados.html">Resultados</a> -->
+            <a href="../páginas/extras.html#info-inscrição">Inscrição</a>
+        </nav>
+    </header>
 
-    overlay.addEventListener("click", () => {
-      menu.classList.remove("open");
-      overlay.classList.remove("show");
-      menuBtn.classList.remove("active");
-    });
-    const header = document.getElementById("header");
-    const banner = document.getElementById("banner");
+    <div id="overlay" class="overlay"></div>
+    <section id="banner" class="banner"></section>
 
-    function atualizarHeader() {
-      const bannerBottom = banner.offsetHeight;
-      if (window.scrollY >= bannerBottom) {
-        header.classList.remove("transparent");
-        header.classList.add("solid");
-      } else {
-        header.classList.remove("solid");
-        header.classList.add("transparent");
-      }
-    }
+    <main>
+        <h1 style="text-align: center; color: white;">Nossa Trilha de Conhecimento</h1>
+        <h3 style="text-align: center; color: white;">As referências que sustentaram este projeto e caminhos para quem
+            quiser explorar mais.</h3>
+        <section class="faixa-branca">
+            <div class="texto">
+                <h1>Nucleo</h1>
+                <p>Nesta parte se encontram as principais referencias utilizadas para nosso projeto</p>
+            </div>
+            <div class="links">
+                <a href="https://www.youtube.com/watch?v=Kn4pAoucyMg" class="link" target="_blank">O Modelo Padrão Explicado: A Melhor Teoria da Física </a>
+                <a href="https://home.cern/science/physics/standard-model" class="link" target="_blank">Standard Model </a>
+                <a href="super.abril.com.br/ciencia/entenda-de-uma-vez-o-que-e-o-modelo-padrao/" class="link" target="_blank">Entenda de uma vez: o que é o Modelo Padrão?</a>
+                <a href="https://home.cern/science/accelerators/large-hadron-collider" class="link" target="_blank">O Grande Colisor de Hádrons</a>
+                <a href="https://www.youtube.com/watch?v=aNKSf3HMUNc" class="link" target="_blank">Física ao Vivo - O que é o CERN e qual a pesquisa desenvolvida neste laboratório?</a>
+            </div>
+        </section>
+        <section class="faixa-branca">
+            <div class="texto">
+                <h1>Orbita</h1>
+                <p>Aqui estão algumas informações adicionais que nos permitem aprofundar ainda mais</p>
+            </div>
+            <div class="links">
+                <a href="https://celeste.if.usp.br/docs/Fundamentos/sm/" class="link" target="_blank">O modelo padrão da Física de Partículas</a>
+                <a href="https://www.youtube.com/watch?v=tBYNYchOXmY" class="link" target="_blank">Tijolinhos do Universo: Física de Partículas | Alô, Ciência?</a>
+                <a href="https://outreach.ictp-saifr.org/particulas/" class="link" target="_blank">Pequenas partículas para grandes questões</a>
+        </section>
+        <section class="faixa-branca">
+            <h1>Partículas adicionais</h1>
+            <p>
+            Ficou curioso sobre algo ou com vontade de "quero mais"? Aqui estão algumas curiosidades para você
+            </p>
+            <div class="carrossel-seta">
+                <button class="seta esquerda">&#10094;</button>
+                <div class="carrossel-container">
+                    <div class="carrossel">
+                        <a href="https://ippog.org/ippog_witness_stories" class="coluna" target="_blank">
+                            Como a física transforma a sociedade
+                        </a>
+                        <a href="https://www1.fisica.org.br/ippog/?q=materiais/reportagens" class="coluna" target="_blank">
+                            Reportagens IPPOG
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=OW1dL6EYKDA" class="coluna" target="_blank">
+                            Documentário "Viagem ao CERN"
+                        </a>
+                        <a href="https://www.nationalgeographicbrasil.com/ciencia/2024/04/quem-foi-peter-higgs-o-cientista-que-descobriu-a-particula-de-deus" class="coluna" target="_blank">A particula de Deus</a>
+                    </div>
+                </div>
+                <button class="seta direita">&#10095;</button>
+            </div>
+        </section>
+    </main>
+    <h3 style="text-align: left; color: white; background-color: black; padding: 15px;">A jornada do conhecimento nunca
+        termina. Compartilhe conosco novos materiais e vamos crescer juntos</h3>
+    <footer>
+        <div class="container-footer">
+            <div class="coluna-esquerda-footer">
+                <a href="https://www.ifsc.edu.br/en/web/campus-sao-lourenco-do-oeste" target="_blank">
+                    <img src="../imagens/logo_ifsc.png" alt="logo ifsc">
+                </a>
+                <p>Acesse o site do ifsc</p>
+            </div>
+            <div class="coluna-direita-footer">
 
-    window.addEventListener("scroll", atualizarHeader);
-    window.addEventListener("load", atualizarHeader);
-</script>
+                <p>
+                    <a href="https://home.cern/" target="_blank">Sobre o CERN</a>
+                    <span>|</span>
+                    <a href="https://sprace.org.br/" target="_blank">Sprace</a>
+                    <span>|</span>
+                    <a href="https://renafae.cbpf.br/" target="_blank">Renafae</a>
+                    <span>|</span>
+                    <a href="https://www.lip.pt/" target="_blank">Lip.pt</a>
+                </p>
+                <div class="texto-footer">
+                    <p>Contatos: <a href="https://www.instagram.com/projetomasterclass.ifscslo/" target="_blank">
+                            <img src="../imagens/logo_insta.png" alt="instagram" width="50px" height="50px"
+                                style="vertical-align: middle; width: 50px;">
+                        </a> </p>
+                </div>
+            </div>
+        <div>
+    </footer>
+    <script>
+        /* menu hamburguer */
+        const menuBtn = document.getElementById("menu-btn");
+        const menu = document.getElementById("menu");
+        const overlay = document.getElementById("overlay");
 
+        menuBtn.addEventListener("click", () => {
+            menu.classList.toggle("open");
+            overlay.classList.toggle("show");
+            menuBtn.classList.toggle("active");
+        });
 
+        overlay.addEventListener("click", () => {
+            menu.classList.remove("open");
+            overlay.classList.remove("show");
+            menuBtn.classList.remove("active");
+        });
+        const header = document.getElementById("header");
+        const banner = document.getElementById("banner");
+
+        function atualizarHeader() {
+            const bannerBottom = banner.offsetHeight;
+            if (window.scrollY >= bannerBottom) {
+                header.classList.remove("transparent");
+                header.classList.add("solid");
+            } else {
+                header.classList.remove("solid");
+                header.classList.add("transparent");
+            }
+        }
+
+        const carrossel = document.querySelector('.carrossel');
+        const esquerda = document.querySelector('.seta.esquerda');
+        const direita = document.querySelector('.seta.direita');
+
+        let posicao = 0;
+        const itemLargura = 290; // largura da coluna
+        const gap = 30; // mesmo valor usado no CSS
+        const visiveis = 3; // número de colunas visíveis
+
+        direita.addEventListener('click', () => {
+            const total = carrossel.children.length;
+            const maxPosicao = total - visiveis; // impede espaço no fim
+            if (posicao < maxPosicao) {
+                posicao++;
+            } else {
+                posicao = 0; // volta ao início (loop)
+            }
+            atualizarCarrossel();
+        });
+
+        esquerda.addEventListener('click', () => {
+            const total = carrossel.children.length;
+            const maxPosicao = total - visiveis;
+            if (posicao > 0) {
+                posicao--;
+            } else {
+                posicao = maxPosicao; // vai para o final
+            }
+            atualizarCarrossel();
+        });
+
+        function atualizarCarrossel() {
+            const deslocamento = posicao * (itemLargura + gap);
+            carrossel.style.transform = `translateX(-${deslocamento}px)`;
+        }
+    </script>
 </body>

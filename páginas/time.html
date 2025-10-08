@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/jpg" href="../imagens/icone.ico">
+    <link rel="icon" type="image/x-icon" href="imagens/icone.ico">
     <title>Time Masterclass</title>
 
     <style>    
@@ -59,7 +59,6 @@
         header a:hover {
             color: #3082a1;
         }
-
         header.transparent {
             background-color: transparent;
             color: white;
@@ -68,13 +67,11 @@
             background-color: black;
             color: #fff; 
         }
-
         main {
             margin-top: 20px;
             flex: 1;
             padding: 10px;
         }
-
         .faixa-branca {
             background-color: white;
             padding: 40px 20px;
@@ -83,19 +80,19 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             border-radius: 8px;
         }
-
         #banner {
-            background-image: url('../imagens/banner2.png');
-            background-size: cover;
-            background-position: center;
             height: 400px;
-            display: flex;         
+            display: flex;
             justify-content: center;
             align-items: center;
             color: white;
             text-align: center;
+            background-color: #081d36;
+            background-image: url('../imagens/banner_time.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 900px auto;
         }
-
         /* Estilo para mobile */
         @media (max-width: 768px){
             #banner {
@@ -262,7 +259,10 @@
         /* Coluna da imagem */
         .coluna-esquerda img {  
             width: 250px; 
+            height: 250px;
             border-radius: 10px;
+            background-size: contain;
+            background-position: center;
         }
 
       
@@ -278,13 +278,10 @@
             }
 
             .coluna-esquerda img {
-                width: 60%; /* Menor no mobile */
+                width: 280px; /* Menor no mobile */
             }
         }
-
         .texto { flex: 1 1 60%; }
-
-
     </style>
 </head>
 <body>
@@ -300,6 +297,7 @@
             <a href="../index.html">Início</a>
             <a href="https://www.instagram.com/projetomasterclass.ifscslo/" target="_blank">Instagram</a>
             <a href="../páginas/time.html">Time</a>
+            <a href="../páginas/materais.html">Materiais</a>
             <a href="https://home.cern/" target="_blank">CERN & Técnica</a>
         <!--    <a href="../páginas/resultados.html">Resultados</a> -->
             <a href="../páginas/extras.html#info-inscrição">Inscrição</a>
@@ -316,13 +314,13 @@
         <section class="faixa-branca">
             <div class="resumo-container">
                 <div class="coluna-esquerda">
-                    <img src="../imagens/perfil2.png" alt="perfil">
+                    <img src="../imagens/perfil_stella.png" alt="perfil Stella">
                 </div>
 
                 <div class="coluna-direita">
-                <h2>Abu</h2>
+                <h1>Stella</h1>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam distinctio voluptatum a molestias qui quos non odit rem quaerat quo, aliquid iste recusandae? Exercitationem sunt adipisci soluta hic. Nostrum, ex!
+                        Sou física e professora do IFSC, natural de Brasília-DF. Doutora em Cosmologia pelo CBPF, tenho paixão pela ciência, pela leitura e pela divulgação científica. Oriento o projeto Masterclass do CERN no Campus São Lourenço do Oeste, que aproxima estudantes do universo das partículas e da pesquisa internacional. Em 2024, participei da Escola do CERN para Professores em Língua Portuguesa, vivência que reforçou ainda mais minha ligação com a colaboração científica global. E no teste do CERN, a minha partícula é o elétron, lembrando que ciência também pode ser divertida.
                     </p>
                 </div>
             </div>
@@ -331,28 +329,12 @@
         <section class="faixa-branca">
             <div class="resumo-container">
                 <div class="coluna-esquerda">
-                    <img src="../imagens/perfil1.jpeg" alt="perfil">
+                    <img src="../imagens/perfil_julia.png" alt="perfil_julia">
                 </div>
-
                 <div class="coluna-direita">
-                <h2>Abu</h2>
+                <h2>Julia</h2>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis maiores fugiat labore exercitationem ab consectetur beatae impedit repellat mollitia atque laudantium expedita eos ipsa, recusandae distinctio incidunt, cum porro! Distinctio.
-                    </p>
-                </div>
-            </div>
-        </section>
-        <!--pessoa 3 -->
-        <section class="faixa-branca">
-            <div class="resumo-container">
-                <div class="coluna-esquerda">
-                    <img src="../imagens/perfil2.png" alt="perfil">
-                </div>
-
-                <div class="coluna-direita">
-                <h2>Abu</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam distinctio voluptatum a molestias qui quos non odit rem quaerat quo, aliquid iste recusandae? Exercitationem sunt adipisci soluta hic. Nostrum, ex!
+                        Me chamo Julia, tenho 16 anos e sou Estudante do Ensino Médio Técnico em Marketing no IFSC, apaixonada por ciência e livros! Segundo o teste do CERN, sou um Strange Quark.
                     </p>
                 </div>
             </div>
@@ -362,13 +344,13 @@
 <footer>
         <div class="container-footer">
             <div class="coluna-esquerda-footer">
-                <img src="../imagens/logo_ifsc.png" alt="logo ifsc">
+                <a href="https://www.ifsc.edu.br/en/web/campus-sao-lourenco-do-oeste" target="_blank">
+                    <img src="../imagens/logo_ifsc.png" alt="logo ifsc">
+                </a>
                 <p>Acesse o site do ifsc</p>
-                    
             </div>
             <div class="coluna-direita-footer">
                 <p>
-               <!--     <a href="https://www.ifsc.edu.br/en/web/campus-sao-lourenco-do-oeste" target="_blank">IFSC</a> -->
                     <a href="https://home.cern/" target="_blank">Sobre o CERN</a>
                     <span>|</span> 
                     <a href="https://sprace.org.br/" target="_blank">Sprace</a>
@@ -378,8 +360,9 @@
                     <a href="https://www.lip.pt/" target="_blank">Lip.pt</a>
                 </p>
                 <div class="texto-footer">
-                    <p>Contatos: (49) 3197-8455</p>
-                    <p>(49) 99936-0172 (<a href="https://wa.me/5549999360172" target="_blank">WhatsApp</a>)</p>
+                    <p>Contatos: <a href="https://www.instagram.com/projetomasterclass.ifscslo/" target="_blank">
+                        <img src="../imagens/logo_insta.png" alt="instagram" width="50px" height="50px" style="vertical-align: middle; width: 50px;">
+                    </a> </p>
                 </div>
             </div>
         <div>
