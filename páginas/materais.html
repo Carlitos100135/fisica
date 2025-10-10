@@ -262,6 +262,19 @@
         .texto {
             text-align: left;
         }
+        .texto-colunas {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            color: white;
+            font-weight: bold;
+            z-index: 2; 
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); 
+            font-size: 16px;
+            text-align: start;
+            z-index: 2;
+        }
         /*os links em geral*/
         .links {
             flex: 1 1 35%;
@@ -315,11 +328,36 @@
             text-align: center;
             border-radius: 8px;
             transition: transform 0.3s, background-color 0.3s;
+            position: relative; /* necessário para o posicionamento do ::before */
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
         }
         .coluna:hover {
             background-color: #3081a1;
             transform: scale(1.15);
             z-index: 5;
+        }
+        .coluna::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0));
+            z-index: 1;
+            pointer-events: none; /* deixa o texto e clique funcionais */
+        }
+        .coluna::after {
+            content: attr(title);
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            color: white;
+            font-weight: bold;
+            z-index: 2;
         }
         .seta {
             position: absolute;
@@ -395,6 +433,7 @@
                 <a href="https://celeste.if.usp.br/docs/Fundamentos/sm/" class="link" target="_blank">O modelo padrão da Física de Partículas</a>
                 <a href="https://www.youtube.com/watch?v=tBYNYchOXmY" class="link" target="_blank">Tijolinhos do Universo: Física de Partículas | Alô, Ciência?</a>
                 <a href="https://outreach.ictp-saifr.org/particulas/" class="link" target="_blank">Pequenas partículas para grandes questões</a>
+            </div>
         </section>
         <section class="faixa-branca">
             <h1>Partículas adicionais</h1>
@@ -405,16 +444,18 @@
                 <button class="seta esquerda">&#10094;</button>
                 <div class="carrossel-container">
                     <div class="carrossel">
-                        <a href="https://ippog.org/ippog_witness_stories" class="coluna" target="_blank">
-                            Como a física transforma a sociedade
+                        <a href="https://ippog.org/ippog_witness_stories" class="coluna" target="_blank" style="background-image: url('../imagens/fisica-sociedade.png');">
+                            <p class="texto-colunas">Como a física transforma  sociedade</p>
                         </a>
-                        <a href="https://www1.fisica.org.br/ippog/?q=materiais/reportagens" class="coluna" target="_blank">
-                            Reportagens IPPOG
+                        <a href="https://www1.fisica.org.br/ippog/?q=materiais/reportagens" class="coluna" target="_blank" style="background-image: url('../imagens/ippog.png'); ">
+                            <p class="texto-colunas">Reportagens IPPOG</p>
                         </a>
-                        <a href="https://www.youtube.com/watch?v=OW1dL6EYKDA" class="coluna" target="_blank">
-                            Documentário "Viagem ao CERN"
+                        <a href="https://www.youtube.com/watch?v=OW1dL6EYKDA" class="coluna" target="_blank" style="background-image: url('../imagens/viagem_cern.png'); ">
+                           <p class="texto-colunas"> Documentário "Viagem ao CERN"</p>    
                         </a>
-                        <a href="https://www.nationalgeographicbrasil.com/ciencia/2024/04/quem-foi-peter-higgs-o-cientista-que-descobriu-a-particula-de-deus" class="coluna" target="_blank">A particula de Deus</a>
+                        <a href="https://www.nationalgeographicbrasil.com/ciencia/2024/04/quem-foi-peter-higgs-o-cientista-que-descobriu-a-particula-de-deus" class="coluna" target="_blank" style="background-image: url('../imagens/particula_deus.png'); ">
+                           <p class="texto-colunas">A particula de Deus</p>
+                        </a>
                     </div>
                 </div>
                 <button class="seta direita">&#10095;</button>
