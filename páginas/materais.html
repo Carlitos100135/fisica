@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
         rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../imagens/icone.ico">
     <title>Materiais</title>
     <style>
@@ -259,6 +262,21 @@
         .overlay.show {
             display: block;
         }
+        .titulos {
+            color: black;
+            text-shadow: 1.5px 1.5px 6px rgba(0, 0, 150, 0.7);
+            font-family: "Orbitron", sans-serif;
+        }
+        .titulo-nucleo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        .titulo-nucleo img {
+            width: 35px;
+            height: 35px;
+        }
         .texto {
             text-align: left;
         }
@@ -277,26 +295,31 @@
         }
         /*os links em geral*/
         .links {
-            flex: 1 1 35%;
             display: flex;
             flex-direction: column;
-            gap: 5px;
-            justify-content: center;
+            gap: 8px;
+            align-items: flex-start; 
+            width: fit-content; 
+            max-width: 100%; 
         }
 
         .link {
-            display: inline-block;
+            display: block;
             background-color: #3082a1;
             color: white;
             text-decoration: none;
             padding: 10px 15px;
             border-radius: 5px;
-            text-align: center;
+            text-align: left; /* alinha o texto à esquerda */
+            width: 400px; /* <<< ajuste como quiser */
+            max-width: 100%;
             transition: background-color 0.3s;
         }
-        /*quando passar o mouse em cima do link*/
-        .link a:hover {
-            color: #083e77;
+
+        .link:hover {
+            background-color: #083e77;
+            transition: 0.8 ease;
+            transform: scale(1.03);
         }
         .carrossel-seta {
             position: relative;
@@ -412,10 +435,12 @@
         <h3 style="text-align: center; color: white;">As referências que sustentaram este projeto e caminhos para quem
             quiser explorar mais.</h3>
         <section class="faixa-branca">
-            <div class="texto">
-                <h1>Nucleo</h1>
-                <p>Nesta parte se encontram as principais referencias utilizadas para nosso projeto</p>
+            <div class="titulo-nucleo">
+                <img src="../imagens/nucleo.svg" alt="icone nucleo">
+                <h1 class="titulos">Nucleo</h1>
+                <img src="../imagens/nucleo.svg" alt="icone nucleo">
             </div>
+            <p class="texto">Nesta parte se encontram as principais referencias utilizadas para nosso projeto</p>
             <div class="links">
                 <a href="https://www.youtube.com/watch?v=Kn4pAoucyMg" class="link" target="_blank">O Modelo Padrão Explicado: A Melhor Teoria da Física </a>
                 <a href="https://home.cern/science/physics/standard-model" class="link" target="_blank">Standard Model </a>
@@ -425,10 +450,12 @@
             </div>
         </section>
         <section class="faixa-branca">
-            <div class="texto">
-                <h1>Orbita</h1>
-                <p>Aqui estão algumas informações adicionais que nos permitem aprofundar ainda mais</p>
+            <div class="titulo-nucleo">
+                <img src="../imagens/orbita.svg" alt="icone órbita">
+                <h1 class="titulos">Orbita</h1>
+                <img src="../imagens/orbita.svg" alt="icone órbita">
             </div>
+            <p class="texto">Aqui estão algumas informações adicionais que nos permitem aprofundar ainda mais</p>
             <div class="links">
                 <a href="https://celeste.if.usp.br/docs/Fundamentos/sm/" class="link" target="_blank">O modelo padrão da Física de Partículas</a>
                 <a href="https://www.youtube.com/watch?v=tBYNYchOXmY" class="link" target="_blank">Tijolinhos do Universo: Física de Partículas | Alô, Ciência?</a>
@@ -436,10 +463,12 @@
             </div>
         </section>
         <section class="faixa-branca">
-            <h1>Partículas adicionais</h1>
-            <p>
-            Ficou curioso sobre algo ou com vontade de "quero mais"? Aqui estão algumas curiosidades para você
-            </p>
+            <div class="titulo-nucleo">
+                <img src="../imagens/adicionais.svg" alt="icone particulas adicionais">
+                <h1 class="titulos">Partículas adicionais</h1>
+                <img src="../imagens/adicionais.svg" alt="icone particulas adicionais">
+            </div>
+            <p class="texto">Ficou curioso sobre algo ou com vontade de "quero mais"? Aqui estão algumas curiosidades para você</p>
             <div class="carrossel-seta">
                 <button class="seta esquerda">&#10094;</button>
                 <div class="carrossel-container">
