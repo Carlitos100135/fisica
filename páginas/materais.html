@@ -4,11 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
-        rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../imagens/icone.ico">
     <title>Materiais</title>
     <style>
@@ -323,15 +322,18 @@
         }
         .carrossel-seta {
             position: relative;
-            width: 960px;
+            width: 100%; /* Usa largura total da tela */
+            max-width: 1100px; /* Ou um valor maior que 960px */
             margin: 20px auto;
-            overflow: visible; /* as setas podem sair para fora */
+            padding-left: 40px; /* Empurra o conteúdo um pouco para a direita */
+            box-sizing: border-box;
+            overflow: visible; /* Permite que as setas e colunas fiquem fora da caixa */
         }
 
         .carrossel-container {
             position: relative;
             width: 960px; /* 3 colunas de 300px + 2 gaps de 30px */
-            margin: 20px auto;
+            margin: 25px auto;
             overflow: hidden;
         }
         .carrossel {
@@ -358,7 +360,7 @@
         }
         .coluna:hover {
             background-color: #3081a1;
-            transform: scale(1.15);
+            transform: scale(1.05);
             z-index: 5;
         }
         .coluna::before {
@@ -400,10 +402,10 @@
             background-color: rgba(0, 0, 0, 0.9);
         }
         .seta.esquerda {
-            left: -30px;
+            left: 30px;
         }
         .seta.direita {
-            right: -20px;
+            right: 20px;
         }
     </style>
 </head>
