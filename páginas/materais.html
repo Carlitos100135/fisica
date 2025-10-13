@@ -515,10 +515,14 @@
                     <a href="https://www.lip.pt/" target="_blank">Lip.pt</a>
                 </p>
                 <div class="texto-footer">
-                    <p>Contatos: <a href="https://www.instagram.com/projetomasterclass.ifscslo/" target="_blank">
-                            <img src="../imagens/logo_insta.png" alt="instagram" width="50px" height="50px"
-                                style="vertical-align: middle; width: 50px;">
-                        </a> </p>
+                    <p>Contatos: 
+                        <a href="https://www.instagram.com/projetomasterclass.ifscslo/" target="_blank">
+                            <img src="../imagens/logo_insta.png" alt="instagram" width="50px" height="50px" style="vertical-align: middle; width: 50px;">
+                        </a> 
+                        <a href="mailto:projetomasterclass.slo@gmail.com" target="_blank">
+                            <img src="../imagens/icone_email.png" alt="e-mail" style="vertical-align: middle; width: 50px;">
+                        </a>
+                    </p>
                 </div>
             </div>
         <div>
@@ -553,6 +557,9 @@
                 header.classList.add("transparent");
             }
         }
+
+        window.addEventListener("scroll", atualizarHeader);
+        window.addEventListener("load", atualizarHeader);
 
         const carrossel = document.querySelector('.carrossel');
         const esquerda = document.querySelector('.seta.esquerda');
