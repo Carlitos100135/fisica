@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="pt-BR"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Orbitron:wght@400..900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../imagens/icone.ico">
+    <title>Inscrição</title>
+
+    <style>
+        html {
+            scroll-behavior: smooth; 
+        }
+        html, body {
+            overflow-x: hidden;
+        }
+        body {
+            background-color: #083e77;
+            background-size: contain; 
+            background-position: center;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            padding-top: 60px;
+            padding: 0;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        ::-webkit-scrollbar {
+            display: none;
+        }
+       
+        header {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 1px solid #ddd;
+            z-index: 1000;
+            transition: background-color 0.2s ease;
+            border: none;
+        }
+    
+        header a {
+            text-decoration: none;
+            color: white; 
+            font-size: 15px;
+            transition: color 0.3s;
+            font-family: "Lora", serif;
+        }
+
+        header a:hover {
+            color: #3082a1;
+        }
+
+        header.transparent {
+            background-color: transparent;
+            color: white;
+        }
+        header.solid {
+            background-color: black;
+            color: #fff; 
+        }
+
+        main {
+            margin-top: 20px;
+            flex: 1;
+            padding: 10px;
+        }
+
+        .faixa-branca {
+            background-color: white;
+            padding: 40px 20px;
+            margin: 40px auto;
+            max-width: 1200px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .faixada {
+            
+            padding: 40px 20px;
+            margin: 40px auto;
+            max-width: 1200px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        #banner {
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            background-color: #081d36;
+            background-image: url('../imagens/banner2.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 1400px auto;
+        }
+        /* Estilo para mobile */
+        @media (max-width: 768px){
+            #banner {
+                height: 200px;
+                background-size: cover;
+            }
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        footer a {
+            color: #ddd;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+        .container-footer {
+            display: flex; 
+            align-items: center;
+            gap: 25px; /* Espaço entre as colunas */
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .coluna-esquerda-footer img {  
+            width: 250px; 
+            border-radius: 10px;
+        }
+        .coluna-direita {
+            flex: 1;
+        }
+        @media (max-width: 768px) {
+            .container-footer {
+                flex-direction: column;
+                text-align: center;            
+            }
+            .coluna-esquerda-footer img {
+                width: 100%;
+            }
+            .texto-footer {
+                text-align: center
+            }
+        }
+        .texto-footer {
+            text-align: left;
+            
+        }
+
+        /* Botão hambúrguer */
+        .menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-btn div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        /* Animação para virar X */
+        .menu-btn.active div:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-btn.active div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-btn.active div:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Menu lateral */
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .overlay.show{
+                display: block;
+                width: calc(100% - 240px);
+            }
+            nav {
+                position: fixed;
+                right: 0;
+                transform: translateX(100%);
+                top: 0;
+                height: 100%;
+                width: 200px;
+                background-color: #111;
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                transition: right 0.3s ease;
+                z-index: 1100;
+            }
+
+            nav.open { transform: translateX(0); }
+
+            .menu-btn { display: flex; }
+
+            header { justify-content: space-between; }
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1050;
+        }
+
+        .overlay.show { display: block; }
+        .texto {
+            text-align: left;
+        }
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: flex-start;
+            width: fit-content;
+            max-width: 100%;
+        }
+
+        .link {
+            display: block;
+            background-color: #3082a1;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-align: left;
+            width: 400px;
+            max-width: 100%;
+            transition: background-color 0.3s;
+        }
+        .link:hover {
+            background-color: #083e77;
+            transition: 0.8 ease;
+            transform: scale(1.03);
+        }
+        @media (max-width: 768px){
+            .link {
+                width: 200px;
+            }
+        }
+        .titulo-nucleo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            font-family: "Orbitron", sans-serif;
+            color: black;
+            text-shadow: 1.5px 1.5px 6px rgba(0, 0, 150, 0.7);
+        }
+        .titulo-nucleo img {
+            width: 35px;
+            height: 35px;
+        }
+        .banner-2 {
+            background-color: #083e77;
+            background-size: contain;
+            background-position: center;
+            background-repeat: inherit;
+            height: 200px;
+            display: flex;         
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .banner-2 img {
+            background-color: #3082a1;
+            background-size: contain;
+            background-position: center;
+            background-repeat: inherit;
+            height: 200px;
+            display: flex;         
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            border-radius: 25px;
+        }
+        @media (max-width: 768px) {
+            .banner-2 {
+                height: 120px;
+            }
+            .banner-2 img {
+                height: 120px;
+                width: 100%;
+                border-radius: 15px;
+            }
+        }
+        .botao-svg {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* espaço entre imagem e botão */
+            margin-top: 15px;
+        }
+        .conteudo-inscricao {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+        }
+
+        .texto-inscricao {
+            flex: 2;
+        }
+
+        .imagem-inscricao {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .imagem-inscricao img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Responsivo para mobile */
+        @media (max-width: 768px) {
+            .conteudo-inscricao {
+                flex-direction: column;
+            }
+
+            .imagem-inscricao {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header id="header" class="transparent">
+        <div class="menu-btn" id="menu-btn">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <nav id="menu">
+            <a href="../index.html">Início</a>
+            <a href="https://www.instagram.com/projetomasterclass.ifscslo/" target="_blank">Instagram</a>
+            <a href="../páginas/time.html">Time</a>
+            <a href="../páginas/materiais.html">Materiais</a>
+            <a href="https://home.cern/" target="_blank">CERN & Técnica</a>
+            <!-- <a href="../páginas/resultados.html">Resultados</a> -->
+            <a href="../páginas/inscrições.html">Inscrição</a>
+        </nav>
+    </header>
+
+    <div id="overlay" class="overlay"></div>
+
+    <section id="banner"></section>  
+
+    <main>
+        <section class="banner-2"> <img src="../imagens/banner_insc.png" alt=""> </section>
+        <section class="faixa-branca" id="info-inscrição">
+            <div class="conteudo-inscricao">
+                <div class="texto-inscricao">
+                    <div class="titulo-nucleo">
+                        <img src="../imagens/inscrições1.svg" alt="icone órbita">
+                        <h1 class="titulos">Inscrição</h1>
+                        <img src="../imagens/inscrições2.svg" alt="icone órbita">
+                    </div>
+                    <!-- <P>No IFSC - Câmpus São Lourenço do Oeste, a <b><i> Masterclass </i></b> é organizada de forma acessível e pensado especialmente para jovens interessados em ciência e tecnologia. O <b> período de inscrições ainda não foi iniciado</b>, mas <b>em breve será divulgado pelos canais oficiais do campus</b> (site, murais internos e redes sociais). </P>
+                    <p>Mas já guarde essa data: em 28 e 29 de outubro de 2025, prepare-se para <b>analisar dados reais</b> do CERN e <b>vivenciar uma experiência única</b> de aproximação com a ciência de ponta.</p>
+                    <p><b> Fique atento aos canais oficiais</b> do campus e prepare-se para <b>garantir sua inscrição</b> quando o período for aberto.</P> -->
+
+                    <p>💠 <strong>Participe da maior experiência de Física de Partículas para estudantes do ensino médio!</strong></p>
+
+                    <p>Nos dias <strong>28 e 29 de outubro de 2025</strong>, o <strong>IFSC – Campus São Lourenço do Oeste</strong> sediará a 
+                    <strong>Masterclass Internacional de Física do CERN</strong>, um evento global que aproxima jovens do universo das pesquisas científicas em 
+                    <strong>Física de Partículas</strong>.</p>
+
+                    <p><strong>Durante a Masterclass, você terá a chance de:</strong></p>
+                    <ul>
+                    <li>Assistir a <strong>palestras interativas</strong> com pesquisadores das áreas de <em>Altas Energias</em> e <em>Ciência Básica</em>;</li>
+                    <li>Conhecer o <strong>Modelo Padrão</strong>, teoria que explica as partículas fundamentais e suas interações;</li>
+                    <li><strong>Analisar dados reais do LHC (Large Hadron Collider)</strong>, utilizando a plataforma <strong>CIMA (CMS Instrument for Masterclass Analysis)</strong> — a mesma usada por cientistas do CERN;</li>
+                    <li>Participar de <strong>atividades práticas</strong>, <strong>experimentos interativos</strong> e <strong>jogos educativos</strong> inspirados em grandes descobertas da área.</li>
+                    </ul>
+
+                    <p>📢 <strong>Inscrições abertas!</strong></p>
+
+                    <ul>
+                    <li><strong>Evento:</strong> Masterclass Internacional de Física do CERN – IFSC São Lourenço do Oeste</li>
+                    <li><strong>Data:</strong> 28 e 29 de outubro de 2025</li>
+                    <li><strong>Local:</strong> Instituto Federal de Santa Catarina (IFSC) – Campus São Lourenço do Oeste</li>
+                    <li><strong>Certificação:</strong> 20h de participação para os inscritos</li>
+                    <li><strong>Público-alvo:</strong> Estudantes do ensino médio</li>
+                    </ul>
+
+                    <div class="links">
+                        <div class="botao-svg">
+                            <img src="../imagens/escrevendo.svg" alt="ícone escrevendo" style="width: 35px;">
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScXvkA8eZkq2c7V6xVDckQBl4_EeHIiRODOb4MA-7AOoN0sGA/viewform" class="link" target="_blank">Formulario de inscrição</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="imagem-inscricao">
+                    <img src="../imagens/arte_inscrição.png" alt="Arte de inscrição">
+                </div>
+            </div>
+        </section>
+
+        
+        
+    </main>
+
+<footer>
+        <div class="container-footer">
+            <div class="coluna-esquerda-footer">
+                <a href="https://www.ifsc.edu.br/en/web/campus-sao-lourenco-do-oeste" target="_blank">
+                    <img src="../imagens/logo_ifsc.png" alt="logo ifsc">
+                </a>
+                <p>Acesse o site do ifsc</p>
+                    
+            </div>
+            <div class="coluna-direita-footer">
+                <p>
+                    <a href="https://home.cern/" target="_blank">Sobre o CERN</a>
+                    <span>|</span> 
+                    <a href="https://sprace.org.br/" target="_blank">Sprace</a>
+                    <span>|</span>
+                    <a href="https://renafae.cbpf.br/" target="_blank">Renafae</a>
+                    <span>|</span>
+                    <a href="https://www.lip.pt/" target="_blank">Lip.pt</a>
+                </p>
+                <div class="texto-footer">
+                    <p>Contatos: 
+                        <a href="https://www.instagram.com/projetomasterclass.ifscslo/" target="_blank">
+                            <img src="../imagens/logo_insta.png" alt="instagram" width="50px" height="50px" style="vertical-align: middle; width: 50px;">
+                        </a> 
+                        <a href="mailto:projetomasterclass.slo@gmail.com" target="_blank">
+                            <img src="../imagens/icone_email.png" alt="e-mail" style="vertical-align: middle; width: 50px;">
+                        </a>
+                    </p>
+                </div>
+            </div>
+        <div>   
+    </footer>
+    <script>
+        const menuBtn = document.getElementById("menu-btn");
+        const menu = document.getElementById("menu");
+        const overlay = document.getElementById("overlay");
+
+        menuBtn.addEventListener("click", () => {
+            menu.classList.toggle("open");
+            overlay.classList.toggle("show");
+            menuBtn.classList.toggle("active");
+        });
+
+        overlay.addEventListener("click", () => {
+            menu.classList.remove("open");
+            overlay.classList.remove("show");
+            menuBtn.classList.remove("active");
+        });
+        
+        const header = document.getElementById("header");
+        const banner = document.getElementById("banner");
+
+        function atualizarHeader() {
+            const bannerBottom = banner.offsetHeight;
+            if (window.scrollY >= bannerBottom) {
+                header.classList.remove("transparent");
+                header.classList.add("solid");
+            } else {
+                header.classList.remove("solid");
+                header.classList.add("transparent");
+            }
+        }
+
+        window.addEventListener("scroll", atualizarHeader);
+        window.addEventListener("load", atualizarHeader);
+    </script>
+
+</body>
+</html>
+
+

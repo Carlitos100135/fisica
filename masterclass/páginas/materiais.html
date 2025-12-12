@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Orbitron:wght@400..900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../imagens/icone.ico">
+    <title>Materiais</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+        }
+
+        body {
+            background-color: #083e77;
+            background-size: contain;
+            background-position: center;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+ 
+        header {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 1px solid #ddd;
+            z-index: 1000;
+            transition: background-color 0.2s ease;
+            border: none;
+        }
+
+        header a {
+            text-decoration: none;
+            color: white;
+            font-size: 15px;
+            transition: color 0.3s;
+            font-family: "Lora", serif;
+        }
+
+        header a:hover {
+            color: #3082a1;
+        }
+
+        header.transparent {
+            background-color: transparent;
+            color: white;
+        }
+
+        header.solid {
+            background-color: black;
+            color: #fff;
+        }
+
+        main {
+            margin-top: 20px;
+            flex: 1;
+            padding: 10px;
+        }
+
+        .faixa-branca {
+            background-color: white;
+            padding: 40px 20px;
+            margin: 40px auto;
+            max-width: 1200px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+       #banner {
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            background-color: #081d36;
+            background-image: url('../imagens/banner2.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 1400px auto;
+        }
+        /* Estilo para mobile */
+        @media (max-width: 768px){
+            #banner {
+                height: 200px;
+                background-size: cover;
+                
+            }
+
+            .carrossel-seta {
+                padding-left: 0;
+            }
+
+            .carrossel-container {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 0;
+                margin: 0 auto;
+            }
+            .carrossel {
+                gap: 0 !important;
+            }
+
+            .coluna {
+                flex: 0 0 100% !important;
+                max-width: 100% !important;
+            }
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        footer a {
+            color: #ddd;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        .container-footer {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .coluna-esquerda-footer img {
+            width: 250px;
+            border-radius: 10px;
+        }
+
+        .coluna-direita {
+            flex: 1;
+        }
+
+        @media (max-width: 768px) {
+            .container-footer {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .coluna-esquerda-footer img {
+                width: 100%;
+            }
+
+            .texto-footer {
+                text-align: center
+            }
+        }
+
+        .texto-footer {
+            text-align: left;
+        }
+
+        .menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-btn div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        /* Animação para virar X */
+        .menu-btn.active div:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-btn.active div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-btn.active div:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Menu lateral */
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .overlay.show{
+                display: block;
+                width: calc(100% - 240px);
+            }
+            nav {
+                position: fixed;
+                right: 0;
+                transform: translateX(100%);
+                top: 0;
+                height: 100%;
+                width: 200px;
+                background-color: #111;
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                transition: right 0.3s ease;
+                z-index: 1100;
+            }
+
+            nav.open { transform: translateX(0); }
+
+            .menu-btn { display: flex; }
+
+            header { justify-content: space-between; }
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1050;
+        }
+
+        .overlay.show {
+            display: block;
+        }
+
+        .titulos {
+            color: black;
+            text-shadow: 1.5px 1.5px 6px rgba(0, 0, 150, 0.7);
+            font-family: "Orbitron", sans-serif;
+        }
+
+        .titulo-nucleo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .titulo-nucleo img {
+            width: 35px;
+            height: 35px;
+        }
+
+        .texto {
+            text-align: left;
+        }
+
+        .texto-colunas {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            color: white;
+            font-weight: bold;
+            z-index: 2;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+            font-size: 16px;
+            text-align: start;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: flex-start;
+            width: fit-content;
+            max-width: 100%;
+        }
+
+        .link {
+        display: block;
+        background-color: #3082a1;
+        color: white;
+        text-decoration: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-align: left;
+        width: 400px;
+        max-width: 100%;
+        transition: background-color 0.3s;
+        }
+
+        .link:hover {
+        background-color: #083e77;
+        transition: all 0.8s ease;
+        transform: scale(1.03);
+        }
+
+        .carrossel-seta {
+        position: relative;
+        width: 100%;
+        max-width: 1100px;
+        margin: 20px auto;
+        padding-left: 40px;
+        box-sizing: border-box;
+        overflow: visible;
+        }
+
+        .carrossel-container {
+        position: relative;
+        width: 960px;
+        margin: 25px auto;
+        overflow: hidden;
+        }
+
+        .carrossel {
+        display: flex;
+        gap: 30px;
+        transition: transform 0.5s ease;
+        }
+
+        .coluna {
+        flex: 0 0 290px;
+        height: 280px;
+        background-color: #3082a1;
+        color: white;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: 8px;
+        transition: transform 0.3s, background-color 0.3s;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+        }
+
+        .coluna:hover {
+        background-color: #3081a1;
+        transform: scale(1.05);
+        z-index: 5;
+        }
+
+        .coluna::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+        z-index: 1;
+        pointer-events: none;
+        }
+
+        .coluna::after {
+        content: attr(title);
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        color: white;
+        font-weight: bold;
+        z-index: 2;
+        }
+
+        .seta {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.7);
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 50%;
+        z-index: 10;
+        transition: background-color 0.3s;
+        }
+
+        .seta:hover {
+        background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .seta.esquerda {
+        left: 30px;
+        }
+
+        .seta.direita {
+        right: 20px;
+        }
+    </style>  
+</head>
+
+<body>
+<header id="header" class="transparent">
+        <div class="menu-btn" id="menu-btn">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <nav id="menu">
+            <a href="../index.html">Início</a>
+            <a href="https://www.instagram.com/projetomasterclass.ifscslo/" target="_blank">Instagram</a>
+            <a href="../páginas/time.html">Time</a>
+            <a href="../páginas/materiais.html">Materiais</a>
+            <a href="https://home.cern/" target="_blank">CERN & Técnica</a>
+            <!-- <a href="../páginas/resultados.html">Resultados</a> -->
+            <a href="../páginas/inscrições.html">Inscrição</a>
+        </nav>
+    </header>
+
+    <div id="overlay" class="overlay"></div>
+    <section id="banner"></section>  
+
+    <main>
+        <h1 style="text-align: center; color: white;">Nossa Trilha de Conhecimento</h1>
+        <h3 style="text-align: center; color: white;">As referências que sustentaram este projeto e caminhos para quem
+            quiser explorar mais.</h3>
+        <section class="faixa-branca">
+            <div class="titulo-nucleo">
+                <img src="../imagens/nucleo.svg" alt="icone nucleo">
+                <h1 class="titulos">Nucleo</h1>
+                <img src="../imagens/nucleo.svg" alt="icone nucleo">
+            </div>
+            <p class="texto">Nesta parte se encontram as principais referencias utilizadas para nosso projeto</p>
+            <div class="links">
+                <a href="https://www.youtube.com/watch?v=Kn4pAoucyMg" class="link" target="_blank">O Modelo Padrão Explicado: A Melhor Teoria da Física </a>
+                <a href="https://home.cern/science/physics/standard-model" class="link" target="_blank">Standard Model </a>
+                <a href="https://super.abril.com.br/ciencia/entenda-de-uma-vez-o-que-e-o-modelo-padrao/" class="link" target="_blank">Entenda de uma vez: o que é o Modelo Padrão?</a>
+                <a href="https://home.cern/science/accelerators/large-hadron-collider" class="link" target="_blank">O Grande Colisor de Hádrons</a>
+                <a href="https://www.youtube.com/watch?v=aNKSf3HMUNc" class="link" target="_blank">Física ao Vivo - O que é o CERN e qual a pesquisa desenvolvida neste laboratório?</a>
+            </div>
+        </section>
+        <section class="faixa-branca">
+            <div class="titulo-nucleo">
+                <img src="../imagens/orbita.svg" alt="icone órbita">
+                <h1 class="titulos">Orbita</h1>
+                <img src="../imagens/orbita.svg" alt="icone órbita">
+            </div> 
+            <p class="texto">Aqui estão algumas informações adicionais que nos permitem aprofundar ainda mais</p>
+            <div class="links">
+                <a href="https://celeste.if.usp.br/docs/Fundamentos/sm/" class="link" target="_blank">O modelo padrão da Física de Partículas</a>
+                <a href="https://www.youtube.com/watch?v=tBYNYchOXmY" class="link" target="_blank">Tijolinhos do Universo: Física de Partículas | Alô, Ciência?</a>
+                <a href="https://outreach.ictp-saifr.org/particulas/" class="link" target="_blank">Pequenas partículas para grandes questões</a>
+            </div>
+        </section>
+        <section class="faixa-branca">
+            <div class="titulo-nucleo">
+                <img src="../imagens/adicionais.svg" alt="icone particulas adicionais">
+                <h1 class="titulos">Partículas adicionais</h1>
+                <img src="../imagens/adicionais.svg" alt="icone particulas adicionais">
+            </div>
+            <p class="texto">Ficou curioso sobre algo ou com vontade de "quero mais"? Aqui estão algumas curiosidades para você</p>
+            <div class="carrossel-seta">
+                <button class="seta esquerda">&#10094;</button>
+                <div class="carrossel-container">
+                    <div class="carrossel">
+                        <a href="https://ippog.org/ippog_witness_stories" class="coluna" target="_blank" style="background-image: url('../imagens/fisica-sociedade.png');">
+                            <p class="texto-colunas">Como a física transforma  sociedade</p>
+                        </a>
+                        <a href="https://www1.fisica.org.br/ippog/?q=materiais/reportagens" class="coluna" target="_blank" style="background-image: url('../imagens/ippog.png'); ">
+                            <p class="texto-colunas">Reportagens IPPOG</p>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=OW1dL6EYKDA" class="coluna" target="_blank" style="background-image: url('../imagens/viagem_cern.png'); ">
+                           <p class="texto-colunas"> Documentário "Viagem ao CERN"</p>    
+                        </a>
+                        <a href="https://www.nationalgeographicbrasil.com/ciencia/2024/04/quem-foi-peter-higgs-o-cientista-que-descobriu-a-particula-de-deus" class="coluna" target="_blank" style="background-image: url('../imagens/particula_deus.png'); ">
+                           <p class="texto-colunas">A particula de Deus</p>
+                        </a>
+                    </div>
+                </div>
+                <button class="seta direita">&#10095;</button>
+            </div>
+        </section>
+    </main>
+    <h3 style="text-align: left; color: white; background-color: black; padding: 15px;">A jornada do conhecimento nunca
+        termina. Compartilhe conosco novos materiais e vamos crescer juntos</h3>
+    <footer>
+        <div class="container-footer">
+            <div class="coluna-esquerda-footer">
+                <a href="https://www.ifsc.edu.br/en/web/campus-sao-lourenco-do-oeste" target="_blank">
+                    <img src="../imagens/logo_ifsc.png" alt="logo ifsc">
+                </a>
+                <p>Acesse o site do ifsc</p>
+            </div>
+            <div class="coluna-direita-footer">
+
+                <p>
+                    <a href="https://home.cern/" target="_blank">Sobre o CERN</a>
+                    <span>|</span>
+                    <a href="https://sprace.org.br/" target="_blank">Sprace</a>
+                    <span>|</span>
+                    <a href="https://renafae.cbpf.br/" target="_blank">Renafae</a>
+                    <span>|</span>
+                    <a href="https://www.lip.pt/" target="_blank">Lip.pt</a>
+                </p>
+                <div class="texto-footer">
+                    <p>Contatos: 
+                        <a href="https://www.instagram.com/projetomasterclass.ifscslo/" target="_blank">
+                            <img src="../imagens/logo_insta.png" alt="instagram" width="50px" height="50px" style="vertical-align: middle; width: 50px;">
+                        </a> 
+                        <a href="mailto:projetomasterclass.slo@gmail.com" target="_blank">
+                            <img src="../imagens/icone_email.png" alt="e-mail" style="vertical-align: middle; width: 50px;">
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        /* menu hamburguer */
+        const menuBtn = document.getElementById("menu-btn");
+        const menu = document.getElementById("menu");
+        const overlay = document.getElementById("overlay");
+
+        menuBtn.addEventListener("click", () => {
+        menu.classList.toggle("open");
+        overlay.classList.toggle("show");
+        menuBtn.classList.toggle("active");
+        });
+
+        overlay.addEventListener("click", () => {
+        menu.classList.remove("open");
+        overlay.classList.remove("show");
+        menuBtn.classList.remove("active");
+        });
+
+        const header = document.getElementById("header");
+        const banner = document.getElementById("banner");
+
+        function atualizarHeader() {
+        const bannerBottom = banner.offsetHeight;
+        if (window.scrollY >= bannerBottom) {
+            header.classList.remove("transparent");
+            header.classList.add("solid");
+        } else {
+            header.classList.remove("solid");
+            header.classList.add("transparent");
+        }
+        }
+
+        window.addEventListener("scroll", atualizarHeader);
+        window.addEventListener("load", atualizarHeader);
+
+        /* ---- CARROSSEL ---- */
+        const carrossel = document.querySelector('.carrossel');
+        const esquerda = document.querySelector('.seta.esquerda');
+        const direita = document.querySelector('.seta.direita');
+
+        let posicao = 0;
+        const gap = 30;
+
+        function obterVisiveis() {
+            const larguraItem = 290 + 30; // largura + gap
+            const larguraDisponivel = document.querySelector('.carrossel-container').clientWidth;
+            return Math.floor(larguraDisponivel / larguraItem);
+        }
+
+        let visiveis = obterVisiveis();
+
+        direita.addEventListener('click', () => {
+        const total = carrossel.children.length;
+        const maxPosicao = total - visiveis;
+        posicao = posicao < maxPosicao ? posicao + 1 : 0;
+        atualizarCarrossel();
+        });
+
+        esquerda.addEventListener('click', () => {
+        const total = carrossel.children.length;
+        const maxPosicao = total - visiveis;
+        posicao = posicao > 0 ? posicao - 1 : maxPosicao;
+        atualizarCarrossel();
+        });
+
+        function atualizarCarrossel() {
+        const container = document.querySelector('.carrossel-container');
+        let larguraItem;
+        if (window.innerWidth <= 768) {
+            larguraItem = container.clientWidth;; // ocupa 100%
+        } else {
+            larguraItem = 290 + gap;
+        }
+        const deslocamento = posicao * larguraItem;
+        carrossel.style.transform = `translateX(-${deslocamento}px)`;
+        }
+
+        window.addEventListener('resize', () => {
+        visiveis = obterVisiveis();
+        atualizarCarrossel();
+        });
+        if (carrossel && esquerda && direita) {
+            // roda o carrossel
+        }
+    </script>
+</body>
