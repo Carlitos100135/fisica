@@ -477,7 +477,7 @@
     </style>  
 </head>
 
-<body>
+<body data-page="materiais">
 <header id="header" class="transparent">
         <div class="menu-btn" id="menu-btn">
             <div></div>
@@ -596,89 +596,7 @@
             </div>
         </div>
     </footer>
-    <script>
-        /* menu hamburguer */
-        const menuBtn = document.getElementById("menu-btn");
-        const menu = document.getElementById("menu");
-        const overlay = document.getElementById("overlay");
-
-        menuBtn.addEventListener("click", () => {
-        menu.classList.toggle("open");
-        overlay.classList.toggle("show");
-        menuBtn.classList.toggle("active");
-        });
-
-        overlay.addEventListener("click", () => {
-        menu.classList.remove("open");
-        overlay.classList.remove("show");
-        menuBtn.classList.remove("active");
-        });
-
-        const header = document.getElementById("header");
-        const banner = document.getElementById("banner");
-
-        function atualizarHeader() {
-        const bannerBottom = banner.offsetHeight;
-        if (window.scrollY >= bannerBottom) {
-            header.classList.remove("transparent");
-            header.classList.add("solid");
-        } else {
-            header.classList.remove("solid");
-            header.classList.add("transparent");
-        }
-        }
-
-        window.addEventListener("scroll", atualizarHeader);
-        window.addEventListener("load", atualizarHeader);
-
-        /* ---- CARROSSEL ---- */
-        const carrossel = document.querySelector('.carrossel');
-        const esquerda = document.querySelector('.seta.esquerda');
-        const direita = document.querySelector('.seta.direita');
-
-        let posicao = 0;
-        const gap = 30;
-
-        function obterVisiveis() {
-            const larguraItem = 290 + 30; // largura + gap
-            const larguraDisponivel = document.querySelector('.carrossel-container').clientWidth;
-            return Math.floor(larguraDisponivel / larguraItem);
-        }
-
-        let visiveis = obterVisiveis();
-
-        direita.addEventListener('click', () => {
-        const total = carrossel.children.length;
-        const maxPosicao = total - visiveis;
-        posicao = posicao < maxPosicao ? posicao + 1 : 0;
-        atualizarCarrossel();
-        });
-
-        esquerda.addEventListener('click', () => {
-        const total = carrossel.children.length;
-        const maxPosicao = total - visiveis;
-        posicao = posicao > 0 ? posicao - 1 : maxPosicao;
-        atualizarCarrossel();
-        });
-
-        function atualizarCarrossel() {
-        const container = document.querySelector('.carrossel-container');
-        let larguraItem;
-        if (window.innerWidth <= 768) {
-            larguraItem = container.clientWidth;; // ocupa 100%
-        } else {
-            larguraItem = 290 + gap;
-        }
-        const deslocamento = posicao * larguraItem;
-        carrossel.style.transform = `translateX(-${deslocamento}px)`;
-        }
-
-        window.addEventListener('resize', () => {
-        visiveis = obterVisiveis();
-        atualizarCarrossel();
-        });
-        if (carrossel && esquerda && direita) {
-            // roda o carrossel
-        }
+    <script src="../base.js">
+        
     </script>
 </body>

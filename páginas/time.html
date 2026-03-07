@@ -294,7 +294,7 @@
         .texto { flex: 1 1 60%; }
     </style>
 </head>
-<body> 
+<body data-page="times"> 
 
     <header id="header" class="transparent">
         <div class="menu-btn" id="menu-btn">
@@ -423,41 +423,9 @@
         <div>
     </footer>
 
-    <script>
-        const menuBtn = document.getElementById("menu-btn");
-        const menu = document.getElementById("menu");
-        const overlay = document.getElementById("overlay");
+    <script src="../base.js"></script>>
 
-        menuBtn.addEventListener("click", () => {
-            menu.classList.toggle("open");
-            overlay.classList.toggle("show");
-            menuBtn.classList.toggle("active");
-        });
 
-        overlay.addEventListener("click", () => {
-            menu.classList.remove("open");
-            overlay.classList.remove("show");
-            menuBtn.classList.remove("active");
-        });
-        
-        /* header coisado */
-        const header = document.getElementById("header");
-        const banner = document.getElementById("banner");
-
-        function atualizarHeader() {
-            const bannerBottom = banner.offsetHeight;
-            if (window.scrollY >= bannerBottom) {
-                header.classList.remove("transparent");
-                header.classList.add("solid");
-            } else {
-                header.classList.remove("solid");
-                header.classList.add("transparent");
-            }
-        }
-
-        window.addEventListener("scroll", atualizarHeader);
-        window.addEventListener("load", atualizarHeader);
-    </script>
 
 </body>
 </html>
