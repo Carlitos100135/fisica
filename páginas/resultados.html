@@ -110,19 +110,22 @@
             background-repeat: no-repeat;
             background-position: center;
             background-size: 1400px auto;
+           
         }
         #banner::after {
             content: "";
+            position: absolute;
             inset: 0;
             background: rgba(0,0,0,0.15);
         }
-            /* Estilo para mobile */
-            @media (max-width: 768px){
-            .banner {
+        /* Estilo para mobile */
+        @media (max-width: 768px){
+            #banner {
                 height: 200px;
-                background-size: contain;
-                }
+                background-size: cover;
+                
             }
+        }
 
             footer {
                 background-color: black;
