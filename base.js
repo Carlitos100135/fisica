@@ -1,8 +1,8 @@
+import { initBackground } from './background.js';
 document.addEventListener("DOMContentLoaded", initSite);
 /* =========================
    INICIALIZAÇÃO
 ========================= */
-
 function initSite() {
 
   initGlobal();
@@ -27,6 +27,11 @@ function initSite() {
 function initGlobal() {
   initMenu();
   initHeader();
+  
+  const canvas = document.getElementById("canvas-bg");
+  if (canvas) {
+    initBackground(canvas);
+  }
 }
 
 /* =========================
