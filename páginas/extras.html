@@ -51,7 +51,6 @@
         ::-webkit-scrollbar {
             display: none;
         }
-       
         header {
             position: fixed; 
             top: 0;
@@ -67,7 +66,6 @@
             transition: background-color 0.2s ease;
             border: none;
         }
-    
         header a {
             text-decoration: none;
             color: white; 
@@ -75,11 +73,9 @@
             transition: color 0.3s;
             font-family: "Lora", serif;
         }
-
         header a:hover {
             color: #3082a1;
         }
-
         header.transparent {
             background-color: transparent;
             color: white;
@@ -88,13 +84,11 @@
             background-color: black;
             color: #fff; 
         }
-
         main {
             margin-top: 20px;
             flex: 1;
             padding: 10px;
         }
-
         .faixa-branca {
             background-color: rgba(255, 255, 255, 0.78);
             backdrop-filter: blur(6px);
@@ -104,8 +98,6 @@
             padding: 30px;
             margin: 60px auto;
         }
-
-
         #banner {
             height: 400px;
             display: flex;
@@ -118,7 +110,6 @@
             background-repeat: no-repeat;
             background-position: center;
             background-size: 1400px auto;
-           
         }
         #banner::after {
             content: "";
@@ -126,14 +117,6 @@
             inset: 0;
             background: rgba(0,0,0,0.15);
         }
-        /* Estilo para mobile */
-        @media (max-width: 768px){
-            #banner {
-                height: 200px;
-                background-size: cover;
-            }
-        }
-
         footer {
             background-color: black;
             color: white;
@@ -144,13 +127,11 @@
             width: 100%;
             z-index: 1000;
         }
-
         footer a {
             color: #ddd;
             margin: 0 10px;
             text-decoration: none;
         }
-
         footer a:hover {
             color: #fff;
         }
@@ -169,23 +150,10 @@
         .coluna-direita {
             flex: 1;
         }
-        @media (max-width: 768px) {
-            .container-footer {
-                flex-direction: column;
-                text-align: center;            
-            }
-            .coluna-esquerda-footer img {
-                width: 100%;
-            }
-            .texto-footer {
-                text-align: center
-            }
-        }
         .texto-footer {
             text-align: left;
             
         }
-
         /* Botão hambúrguer */
         .menu-btn {
             display: none;
@@ -194,60 +162,27 @@
             cursor: pointer;
             transition: transform 0.3s ease;
         }
-
         .menu-btn div {
             width: 25px;
             height: 3px;
             background-color: white;
             transition: all 0.3s ease;
         }
-
         /* Animação para virar X */
         .menu-btn.active div:nth-child(1) {
             transform: rotate(45deg) translate(5px, 5px);
         }
-
         .menu-btn.active div:nth-child(2) {
             opacity: 0;
         }
-
         .menu-btn.active div:nth-child(3) {
             transform: rotate(-45deg) translate(6px, -6px);
         }
-
         /* Menu lateral */
         nav {
             display: flex;
             gap: 20px;
         }
-
-        @media (max-width: 768px) {
-            .overlay.show{
-                display: block;
-                width: calc(100% - 240px);
-            }
-            nav {
-                position: fixed;
-                right: 0;
-                transform: translateX(100%);
-                top: 0;
-                height: 100%;
-                width: 200px;
-                background-color: #111;
-                flex-direction: column;
-                padding: 20px;
-                gap: 15px;
-                transition: right 0.3s ease;
-                z-index: 1100;
-            }
-
-            nav.open { transform: translateX(0); }
-
-            .menu-btn { display: flex; }
-
-            header { justify-content: space-between; }
-        }
-        
        .overlay {
             display: none;
             position: fixed;
@@ -258,8 +193,8 @@
             background: rgba(0,0,0,0.5);
             z-index: 1050;
         }
-
         .overlay.show { display: block; }
+        /*banner pequeno, abaixo do principal*/
         .banner-2 {
             background-color: #083e77;
             background-size: contain;
@@ -286,16 +221,7 @@
             text-align: center;
             border-radius: 25px;
         }
-        @media (max-width: 768px) {
-            .banner-2 {
-                height: 120px;
-            }
-            .banner-2 img {
-                height: 120px;
-                width: 100%;
-                border-radius: 15px;
-            }
-        }
+       
         .link {
             display: block;
             background-color: #3082a1;
@@ -313,6 +239,7 @@
             transition: 0.8 ease;
             transform: scale(1.03);
         }
+        /*parte ortografica */
         .titulos {
             color: black;
             text-shadow: 1.5px 1.5px 6px rgba(0, 0, 150, 0.7);
@@ -327,11 +254,6 @@
             font-family: "Orbitron", sans-serif;
             color: black;
             text-shadow: 1.5px 1.5px 6px rgba(0, 0, 150, 0.7);
-        }
-        @media (max-width: 768px){
-            .link {
-                width: 200px;
-            }
         }
         .titulo-nucleo img {
             width: 35px;
@@ -351,6 +273,7 @@
             gap: 10px; /* espaço entre imagem e botão */
             margin-top: 15px;
         }
+        /* fundo */
         #canvas-bg {
             position: fixed;
             top: 0;
@@ -359,6 +282,55 @@
             height: 100vh;
             z-index: -1; /* fica atrás de tudo */
             pointer-events: none; /* não bloqueia cliques */
+        }
+        /* Resposividade/ adaptações */
+        @media (max-width: 768px){
+            #banner {
+                height: 200px;
+                background-size: cover;
+            }
+            .container-footer {
+                flex-direction: column;
+                text-align: center;            
+            }
+            .coluna-esquerda-footer img {
+                width: 100%;
+            }
+            .texto-footer {
+                text-align: center
+            }
+            .overlay.show{
+                display: block;
+                width: calc(100% - 240px);
+            }
+            nav {
+                position: fixed;
+                right: 0;
+                transform: translateX(100%);
+                top: 0;
+                height: 100%;
+                width: 200px;
+                background-color: #111;
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                transition: right 0.3s ease;
+                z-index: 1100;
+            }
+            nav.open { transform: translateX(0); }
+            .menu-btn { display: flex; }
+            header { justify-content: space-between; }
+            .banner-2 {
+                height: 120px;
+            }
+            .banner-2 img {
+                height: 120px;
+                width: 100%;
+                border-radius: 15px;
+            }
+            .link {
+                width: 200px;
+            }
         }
     </style>
 </head>
@@ -388,7 +360,7 @@
 
     <main>
         <section class="banner-2"> <img src="../imagens/banner_insc.png" alt=""> </section>
-        <Section class="faixa-branca">
+        <section class="faixa-branca">
             <div class="conteudo-inscricao">
                 <div class="texto-inscricao">
                     <div class="titulo-nucleo">
@@ -397,8 +369,8 @@
             <p><b>A International Physics Masterclasses</b> é um dos maiores programas de divulgação científica em física de partículas do mundo, envolvendo anualmente dezenas de milhares de estudantes em mais de 60 países. Desde 2005, a iniciativa aproxima a ciência de ponta de jovens em fase escolar, permitindo que eles compreendam os conceitos da área, assim como a forma como se organiza a produção de conhecimento em grandes colaborações científicas internacionais. As edições são realizadas em universidades, institutos de pesquisa e escolas parceiras, de modo que cada local organiza sua própria edição, mas todos seguem um padrão definido pelo CERN e pelo IPPOG.</p>
             <p>Além do contato inicial com conteúdos avançados de física moderna, a masterclass apresenta aos estudantes as ferramentas tecnológicas que tornam essa ciência possível. Utilizando softwares de análise semelhantes aos usados nos experimentos do LHC, os participantes analisam dados reais de colisões de partículas, aprendendo a identificar rastros em detectores, interpretar gráficos estatísticos, calcular energias liberadas em colisões e até investigar sinais que sugerem a presença de partículas como o bóson de Higgs.</p>
             <p> No Brasil, universidades e institutos federais vêm organizando edições da masterclass, fortalecendo a integração entre ensino médio e pesquisa científica. Para muitos estudantes, participar da masterclass representa o primeiro contato direto com a investigação científica moderna e pode servir de motivação para seguir carreiras nas áreas de física, engenharia, computação ou mesmo no desenvolvimento de novas tecnologias. Assim, mais do que uma atividade isolada, o projeto busca formar cidadãos críticos e curiosos, capazes de compreender a ciência como parte fundamental do avanço da sociedade.</p>
-        </Section>
-        <Section class="faixa-branca">
+        </section>
+        <section class="faixa-branca">
             <div class="conteudo-inscricao">
                 <div class="texto-inscricao">
                     <div class="titulo-nucleo">
@@ -420,7 +392,7 @@
                         </div>
                     </div>
 
-        </Section>
+        </section>
         
     </main>
 
@@ -454,9 +426,9 @@
                     </p>
                 </div>
             </div>
-        <div>   
+        </div>   
     </footer>
-    <script type="module" src="../base.js"> </script>
+    <script type="module" src="../base.js"></script>
 
 </body> 
 </html>

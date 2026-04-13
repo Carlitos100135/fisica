@@ -51,7 +51,6 @@
         ::-webkit-scrollbar {
             display: none;
         }
-       
         header {
             position: fixed; 
             top: 0;
@@ -67,7 +66,6 @@
             transition: background-color 0.2s ease;
             border: none;
         }
-    
         header a {
             text-decoration: none;
             color: white; 
@@ -75,11 +73,9 @@
             transition: color 0.3s;
             font-family: "Lora", serif;
         }
-
         header a:hover {
             color: #3082a1;
         }
-
         header.transparent {
             background-color: transparent;
             color: white;
@@ -88,13 +84,11 @@
             background-color: black;
             color: #fff; 
         }
-
         main {
             margin-top: 20px;
             flex: 1;
             padding: 10px;
         }
-
         .faixa-branca {
             background-color: rgba(255, 255, 255, 0.78);
             backdrop-filter: blur(6px);
@@ -104,8 +98,6 @@
             padding: 30px;
             margin: 60px auto;
         }
-
-
         #banner {
             height: 400px;
             display: flex;
@@ -118,7 +110,6 @@
             background-repeat: no-repeat;
             background-position: center;
             background-size: 1400px auto;
-           
         }
         #banner::after {
             content: "";
@@ -126,14 +117,6 @@
             inset: 0;
             background: rgba(0,0,0,0.15);
         }
-        /* Estilo para mobile */
-        @media (max-width: 768px){
-            #banner {
-                height: 200px;
-                background-size: cover;
-            }
-        }
-
         footer {
             background-color: black;
             color: white;
@@ -144,13 +127,11 @@
             width: 100%;
             z-index: 1000;
         }
-
         footer a {
             color: #ddd;
             margin: 0 10px;
             text-decoration: none;
         }
-
         footer a:hover {
             color: #fff;
         }
@@ -169,23 +150,10 @@
         .coluna-direita {
             flex: 1;
         }
-        @media (max-width: 768px) {
-            .container-footer {
-                flex-direction: column;
-                text-align: center;            
-            }
-            .coluna-esquerda-footer img {
-                width: 100%;
-            }
-            .texto-footer {
-                text-align: center
-            }
-        }
         .texto-footer {
             text-align: left;
             
         }
-
         /* Botão hambúrguer */
         .menu-btn {
             display: none;
@@ -194,58 +162,26 @@
             cursor: pointer;
             transition: transform 0.3s ease;
         }
-
         .menu-btn div {
             width: 25px;
             height: 3px;
             background-color: white;
             transition: all 0.3s ease;
         }
-
         /* Animação para virar X */
         .menu-btn.active div:nth-child(1) {
             transform: rotate(45deg) translate(5px, 5px);
         }
-
         .menu-btn.active div:nth-child(2) {
             opacity: 0;
         }
-
         .menu-btn.active div:nth-child(3) {
             transform: rotate(-45deg) translate(6px, -6px);
         }
-
         /* Menu lateral */
         nav {
             display: flex;
             gap: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .overlay.show{
-                display: block;
-                width: calc(100% - 240px);
-            }
-            nav {
-                position: fixed;
-                right: 0;
-                transform: translateX(100%);
-                top: 0;
-                height: 100%;
-                width: 200px;
-                background-color: #111;
-                flex-direction: column;
-                padding: 20px;
-                gap: 15px;
-                transition: right 0.3s ease;
-                z-index: 1100;
-            }
-
-            nav.open { transform: translateX(0); }
-
-            .menu-btn { display: flex; }
-
-            header { justify-content: space-between; }
         }
         .overlay {
             display: none;
@@ -257,7 +193,6 @@
             background: rgba(0,0,0,0.5);
             z-index: 1050;
         }
-
         .overlay.show { display: block; }
         .texto {
             text-align: left;
@@ -270,7 +205,6 @@
             width: fit-content;
             max-width: 100%;
         }
-
         .link {
             display: block;
             background-color: #3082a1;
@@ -287,11 +221,6 @@
             background-color: #083e77;
             transition: 0.8 ease;
             transform: scale(1.03);
-        }
-        @media (max-width: 768px){
-            .link {
-                width: 200px;
-            }
         }
         .titulos {
             color: black;
@@ -338,16 +267,6 @@
             text-align: center;
             border-radius: 25px;
         }
-        @media (max-width: 768px) {
-            .banner-2 {
-                height: 120px;
-            }
-            .banner-2 img {
-                height: 120px;
-                width: 100%;
-                border-radius: 15px;
-            }
-        }
         .botao-svg {
             display: flex;
             align-items: center;
@@ -359,34 +278,20 @@
             flex-direction: row;
             gap: 30px;
         }
-
         .texto-inscricao {
             flex: 2;
         }
-
         .imagem-inscricao {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-
         .imagem-inscricao img {
             width: 100%;
             max-width: 100%;
             height: auto;
             border-radius: 10px;
-        }
-
-        /* Responsivo para mobile */
-        @media (max-width: 768px) {
-            .conteudo-inscricao {
-                flex-direction: column;
-            }
-
-            .imagem-inscricao {
-                margin-top: 20px;
-            }
         }
         #canvas-bg {
             position: fixed;
@@ -396,6 +301,60 @@
             height: 100vh;
             z-index: -1; /* fica atrás de tudo */
             pointer-events: none; /* não bloqueia cliques */
+        }
+        @media (max-width: 768px){
+            #banner {
+                height: 200px;
+                background-size: cover;
+            }
+            .container-footer {
+                flex-direction: column;
+                text-align: center;            
+            }
+            .coluna-esquerda-footer img {
+                width: 100%;
+            }
+            .texto-footer {
+                text-align: center
+            }
+            .overlay.show{
+                display: block;
+                width: calc(100% - 240px);
+            }
+            nav {
+                position: fixed;
+                right: 0;
+                transform: translateX(100%);
+                top: 0;
+                height: 100%;
+                width: 200px;
+                background-color: #111;
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                transition: right 0.3s ease;
+                z-index: 1100;
+            }
+            nav.open { transform: translateX(0); }
+            .menu-btn { display: flex; }
+            header { justify-content: space-between; }
+            .link {
+                width: 200px;
+            }
+            .banner-2 {
+                height: 120px;
+            }
+            .banner-2 img {
+                height: 120px;
+                width: 100%;
+                border-radius: 15px;
+            }
+            .conteudo-inscricao {
+                flex-direction: column;
+            }
+            .imagem-inscricao {
+                margin-top: 20px;
+            }
         }
     </style>
 </head>
@@ -435,11 +394,10 @@
                         <img src="../imagens/inscrições2.svg" alt="icone órbita">
                     </div>
                     <p>💠 <strong>A maior experiência de Física de Partículas para estudantes do ensino médio retorna em breve!</strong></p>
-                    Masterclass Internacional de Física do CERN no IFSC – Campus São Lourenço do Oeste ainda não está com inscrições abertas para a próxima edição.
 
-                    O evento, que aproxima jovens do universo das pesquisas científicas em Física de Partículas, terá novas     informações divulgadas em breve nos canais oficiais da instituição.</p>
+                    <p> Internacional de Física do CERN no IFSC – Campus São Lourenço do Oeste ainda não está com inscrições abertas para a próxima edição. O evento, que aproxima jovens do universo das pesquisas científicas em Física de Partículas, terá novas informações divulgadas em breve nos canais oficiais da instituição.</p>
 
-                    <p><strong>Enquanto isso, você pode::</strong></p>
+                    <p><strong>Enquanto isso, você pode:</strong></p>
                     <ul>
                     <li>Conferir como foi a edição anterior;</li>
                     <li>Acompanhar os resultados e registros das atividades realizadas;</li>
@@ -463,7 +421,7 @@
                     <div class="links">
                         <div class="botao-svg">
                             <img src="../imagens/escrevendo.svg" alt="ícone escrevendo" style="width: 35px;">
-                            <a href="resultados.html" class="link">Resultados da edição anterior</a>
+                            <a href="../páginas/resultados.html" class="link">Resultados da edição anterior</a>
                         </div>
                     </div>
                 </div>
@@ -508,9 +466,9 @@
                     </p>
                 </div>
             </div>
-        <div>   
+        </div>   
     </footer>
-    <script type="module" src="../base.js"> </script>
+    <script type="module" src="../base.js"></script>
 
 </body>
 </html>

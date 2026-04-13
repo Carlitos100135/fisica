@@ -87,13 +87,11 @@
             background-color: black;
             color: #fff; 
         }
-
         main {
             margin-top: 20px;
             flex: 1;
             padding: 10px;
         }
-
         .faixa-branca {
             background-color: rgba(255, 255, 255, 0.78);
             backdrop-filter: blur(6px);
@@ -103,7 +101,6 @@
             padding: 30px;
             margin: 60px auto;
         }
-
         #banner {
             height: 400px;
             display: flex;
@@ -116,7 +113,6 @@
             background-repeat: no-repeat;
             background-position: center;
             background-size: 1400px auto;
-           
         }
         #banner::after {
             content: "";
@@ -124,16 +120,6 @@
             inset: 0;
             background: rgba(0,0,0,0.15);
         }
-        /* Estilo para mobile */
-        @media (max-width: 768px){
-            #banner {
-                height: 200px;
-                background-size: cover;
-                
-            }
-        }
-
-
         footer {
             background-color: black;
             color: white;
@@ -144,13 +130,11 @@
             width: 100%;
             z-index: 1000;
         }
-
         footer a {
             color: #ddd;
             margin: 0 10px;
             text-decoration: none;
         }
-
         footer a:hover {
             color: #fff;
         }
@@ -169,23 +153,10 @@
         .coluna-direita {
             flex: 1;
         }
-        @media (max-width: 768px) {
-            .container-footer {
-                flex-direction: column;
-                text-align: center;            
-            }
-            .coluna-esquerda-footer img {
-                width: 100%;
-            }
-            .texto-footer {
-                text-align: center
-            }
-        }
         .texto-footer {
             text-align: left;
             
         }
-        
         .conteudo-colunas {
             display: flex;
             justify-content: space-between; 
@@ -193,9 +164,7 @@
             gap: 20px;
             flex-wrap: wrap;
         }
-
         .texto { flex: 1 1 60%; }
-
         .botoes {
             flex: 1 1 35%;
             display: flex;
@@ -203,7 +172,6 @@
             gap: 10px;
             justify-content: center;
         }
-
         .botao {
             display: inline-block;
             background-color: #3082a1;
@@ -213,16 +181,12 @@
             border-radius: 5px;
             text-align: center;
             transition: background-color 0.3s;
-            
         }
-
-
         .botao:hover {
             background-color: #083e77;
             transition: 0.8 ease;
             transform: scale(1.03);
         }
-
         /* Botão hambúrguer */
         .menu-btn {
             display: none;
@@ -231,60 +195,27 @@
             cursor: pointer;
             transition: transform 0.3s ease;
         }
-
         .menu-btn div {
             width: 25px;
             height: 3px;
             background-color: white;
             transition: all 0.3s ease;
         }
-
         /* Animação para virar X */
         .menu-btn.active div:nth-child(1) {
             transform: rotate(45deg) translate(5px, 5px);
         }
-
         .menu-btn.active div:nth-child(2) {
             opacity: 0;
         }
-
         .menu-btn.active div:nth-child(3) {
             transform: rotate(-45deg) translate(6px, -6px);
         }
-
         /* Menu lateral */
         nav {
             display: flex;
             gap: 20px;
         }
-
-        @media (max-width: 768px) {
-            .overlay.show{
-                display: block;
-                width: calc(100% - 240px);
-            }
-            nav {
-                position: fixed;
-                right: 0;
-                transform: translateX(100%);
-                top: 0;
-                height: 100%;
-                width: 200px;
-                background-color: #111;
-                flex-direction: column;
-                padding: 20px;
-                gap: 15px;
-                transition: right 0.3s ease;
-                z-index: 1100;
-            }
-
-            nav.open { transform: translateX(0); }
-
-            .menu-btn { display: flex; }
-
-            header { justify-content: space-between; }
-        }
-
         .overlay {
             display: none;
             position: fixed;
@@ -295,9 +226,8 @@
             background: rgba(0,0,0,0.5);
             z-index: 1050;
         }
-
         .overlay.show { display: block; }
-
+        /* carrossel do inicio */
         .post {
             position: relative;
             width: 80%;
@@ -335,35 +265,72 @@
         .post button:hover {
             background: rgba(0, 0, 0, 0.8);
         }
+        /*parte ortografica */
         .titulos {
             color: black;
             text-shadow: 1.5px 1.5px 6px rgba(0, 0, 150, 0.7);
             font-family: "Orbitron", sans-serif;
             letter-spacing: 1px;
         }
-
         .titulo-nucleo {
             display: flex;
             align-items: center;
             gap: 8px;
             margin-bottom: 10px;
         }
-
         .titulo-nucleo img {
             width: 35px;
             height: 35px;
         }
-        
+        /* fundo */
         #canvas-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            z-index: -1; /* fica atrás de tudo */
-            pointer-events: none; /* não bloqueia cliques */
+            z-index: -1; 
+            pointer-events: none; 
         }
-       
+        /* Resposividade/ adaptações */
+        @media (max-width: 768px){
+            #banner {
+                height: 200px;
+                background-size: cover;
+                
+            }
+            .container-footer {
+                flex-direction: column;
+                text-align: center;            
+            }
+            .coluna-esquerda-footer img {
+                width: 100%;
+            }
+            .texto-footer {
+                text-align: center
+            }
+            .overlay.show{
+                display: block;
+                width: calc(100% - 240px);
+            }
+            nav {
+                position: fixed;
+                right: 0;
+                transform: translateX(100%);
+                top: 0;
+                height: 100%;
+                width: 200px;
+                background-color: #111;
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                transition: right 0.3s ease;
+                z-index: 1100;
+            }
+            nav.open { transform: translateX(0); }
+            .menu-btn { display: flex; }
+            header { justify-content: space-between; }
+        }
     </style>
 </head>
 <body data-page="home">
@@ -412,7 +379,7 @@
             <div class="titulo-nucleo">
                 <h1 class="titulos">O que é a MasterClass?</h1>
             </div>
-            <p>A <strong><i>International Physics Masterclasses</i></strong> é um projeto educacional global ligado ao <strong>CERN</strong> e coordenado pelo <b>IPPOG. </b> Em 28 e 29 de outubro de 2025, o IFSC - Câmpus São Lourenço do Oeste será uma das instituições brasileiras a sediar esse evento. </p>
+            <p>A <strong><i>International Physics Masterclasses</i></strong> é um projeto educacional global ligado ao <strong>CERN</strong> e coordenado pelo <b>IPPOG. </b> Em outubro de 2025, o IFSC - Câmpus São Lourenço do Oeste foi uma das instituições brasileiras a sediar esse evento. Sendo essa sua primeira edição no campos. </p>
             <p>Voltado principalmente para estudantes do ensino médio e professores, a masterclass tem como objetivo aproximar o publico do ambiente de pesquisa em física de partículas, promovendo palestras introdutórias sobre o Modelo Padrão, aceleradores e detectores, além de mostrar como a ciência é feita em grandes colaborações internacionais, como as do LHC.</p>
         </section>
         <!--caixa 2 -->
@@ -423,7 +390,7 @@
             <p>O projeto busca proporcionar a experiência prática de pesquisadores em <b>física de partículas</b>. Durante o evento, os estudantes assumem o papel de jovens pesquisadores, analisando dados reais produzidos por detectores do CERN, interpretando resultados e discutindo suas conclusões com colegas e cientistas, simulando assim o ambiente colaborativo de grandes experimentos.</p>
             <p>Essas atividades práticas ajudam a transformar o conhecimento teórico em experiência concreta, estimulando habilidades de raciocínio crítico, comunicação e colaboração para todos os envolvidos. Mais do que aprender física, os participantes mergulham em um processo científico real, desenvolvendo competências valiosas para sua formação.</p>
         </section>
-        <!--caixe 3 -->
+        <!--caixa 3 -->
         <div class="faixa-branca">
             <div class="conteudo-colunas">
                 <div class="texto">
@@ -436,7 +403,7 @@
                         ✨ Enquanto isso,<strong> confira nossos materiais</strong> ou <strong>resultados</strong> e acompanhe os canais oficiais para <strong>garantir sua participação</strong> assim que as inscrições forem abertas! 🚀</p>
                 </div>
                 <div class="botoes"> 
-                    <a href="páginas/inscrições.html" class="botao">Inscreva-se</a>
+                    <a href="páginas/inscrições.html" class="botao">Inscrições</a>
                     <a href="páginas/resultados.html" class="botao">Resultados</a>
                 </div>
             </div>
@@ -491,10 +458,10 @@
 
                 </div>
             </div>
-        <div>
+        </div>
     </footer>
 
-    <script type="module" src="base.js"> </script>
+    <script type="module" src="base.js"></script>
 
 </body>
 

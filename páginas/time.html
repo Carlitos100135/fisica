@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/jpg" href="../imagens/icone.ico">
+    <link rel="icon" type="image/x-icon" href="../imagens/icone.ico">
     <title>Time Masterclass</title>
 
     <style>    
@@ -44,7 +44,6 @@
         ::-webkit-scrollbar {
             display: none;
         }
-             
         header {
             position: fixed; 
             top: 0;
@@ -60,7 +59,6 @@
             transition: background-color 0.2s ease;
             border: none;
         }
-    
         header a {
             text-decoration: none;
             color: white; 
@@ -68,7 +66,6 @@
             transition: color 0.3s;
             font-family: "Lora", serif;
         }
-
         header a:hover {
             color: #3082a1;
         }
@@ -94,8 +91,6 @@
             padding: 30px;
             margin: 60px auto;
         }
-
-
         #banner {
             height: 400px;
             display: flex;
@@ -108,7 +103,6 @@
             background-repeat: no-repeat;
             background-position: center;
             background-size: 1400px auto;
-           
         }
         #banner::after {
             content: "";
@@ -116,14 +110,6 @@
             inset: 0;
             background: rgba(0,0,0,0.15);
         }
-        /* Estilo para mobile */
-        @media (max-width: 768px){
-            #banner {
-                height: 200px;
-                background-size: cover;
-            }
-        }
-
         footer {
             background-color: black;
             color: white;
@@ -134,13 +120,11 @@
             width: 100%;
             z-index: 1000;
         }
-
         footer a {
             color: #ddd;
             margin: 0 10px;
             text-decoration: none;
         }
-
         footer a:hover {
             color: #fff;
         }        footer {
@@ -152,16 +136,6 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-        }
-
-        footer a {
-            color: #ddd;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: #fff;
         }
         .container-footer {
             display: flex; 
@@ -178,7 +152,82 @@
         .coluna-direita {
             flex: 1;
         }
-        @media (max-width: 768px) {
+        .texto-footer {
+            text-align: left;
+        }
+        /* Botão hambúrguer */
+        .menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .menu-btn div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+        /* Animação para virar X */
+        .menu-btn.active div:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .menu-btn.active div:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-btn.active div:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+       .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1050;
+       }
+        .overlay.show { display: block; }
+        .resumo-container {
+            display: flex; 
+            align-items: center;
+            gap: 20px; /* Espaço entre as colunas */
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        /* Coluna da imagem */
+        .coluna-esquerda img {  
+            width: 250px; 
+            height: 250px;
+            border-radius: 10px;
+            background-size: contain;
+            background-position: center;
+        }
+        .coluna-direita {
+            flex: 1;
+        }
+        .texto { flex: 1 1 60%; }
+        #canvas-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1; 
+            pointer-events: none;
+        }
+        @media (max-width: 768px){
+            #banner {
+                height: 200px;
+                background-size: cover;
+            }
             .container-footer {
                 flex-direction: column;
                 text-align: center;            
@@ -189,48 +238,6 @@
             .texto-footer {
                 text-align: center;
             }
-        }
-        .texto-footer {
-            text-align: left;
-            
-        }
-
-        /* Botão hambúrguer */
-        .menu-btn {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .menu-btn div {
-            width: 25px;
-            height: 3px;
-            background-color: white;
-            transition: all 0.3s ease;
-        }
-
-        /* Animação para virar X */
-        .menu-btn.active div:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .menu-btn.active div:nth-child(2) {
-            opacity: 0;
-        }
-
-        .menu-btn.active div:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
-        }
-
-        /* Menu lateral */
-        nav {
-            display: flex;
-            gap: 20px;
-        }
-
-        @media (max-width: 768px) {
             .overlay.show{
                 display: block;
                 width: calc(100% - 240px);
@@ -249,75 +256,21 @@
                 transition: right 0.3s ease;
                 z-index: 1100;
             }
-
             nav.open { transform: translateX(0); }
-
             .menu-btn { display: flex; }
-
             header { justify-content: space-between; }
-        }
-
-        /* Overlay */
-       .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1050;
-        }
-
-        .overlay.show { display: block; }
-
-        .resumo-container {
-            display: flex; 
-            align-items: center;
-            gap: 20px; /* Espaço entre as colunas */
-            max-width: 900px;
-            margin: auto;
-            padding: 20px;
-        }
-
-        /* Coluna da imagem */
-        .coluna-esquerda img {  
-            width: 250px; 
-            height: 250px;
-            border-radius: 10px;
-            background-size: contain;
-            background-position: center;
-        }
-
-      
-        .coluna-direita {
-            flex: 1;
-        }
-
         /* Responsivo: no mobile, as colunas viram uma só */
-        @media (max-width: 768px) {
             .resumo-container {
                 flex-direction: column;
                 text-align: center;
             }
-
             .coluna-esquerda img {
                 width: 280px; /* Menor no mobile */
             }
         }
-        .texto { flex: 1 1 60%; }
-        #canvas-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1; /* fica atrás de tudo */
-            pointer-events: none; /* não bloqueia cliques */
-        }
     </style>
 </head>
-<body data-page="times"> 
+<body data-page="time"> 
     <canvas id="canvas-bg"></canvas>
 
     <header id="header" class="transparent">
@@ -342,7 +295,6 @@
 
     <section id="banner"></section>    
 
-
     <main>
         <!--pessoa 1 -->
         <section class="faixa-branca">
@@ -366,7 +318,7 @@
                     <img src="../imagens/perfil_julia.png" alt="perfil Julia">
                 </div>
                 <div class="coluna-direita">
-                <h2>Julia</h2>
+                <h1>Julia</h1>
                     <p>
                         Me chamo Julia, tenho 16 anos e sou Estudante do Ensino Médio Técnico em Marketing no IFSC, apaixonada por ciência e livros! Segundo o teste do CERN, sou um Strange Quark.
                     </p>
@@ -380,33 +332,35 @@
                     <img src="../imagens/perfil_alice.png" alt="perfil Alice">
                 </div>
                 <div class="coluna-direita">
-                <h2>Alice</h2>
+                <h1>Alice</h1>
                     <p>
                         Sou estudante do ensino médio técnico em marketing no campus são Lourenço do oeste e atualmente estou atuando como bolsista no projeto Masterclass! <br> Meu interesse em física cresceu após entrar no ensino médio e ver como as oportunidades se abriram para mim!
                     </p>
                 </div>
             </div>
         </section>
+        <!-- pessoa 4 -->
         <section class="faixa-branca">
             <div class="resumo-container">
                 <div class="coluna-esquerda">
                     <img src="../imagens/perfil_taylor.png" alt="Perfil Taylor">
                 </div>
                 <div class="coluna-direita">
-                <h2>Taylor</h2>
+                <h1>Taylor</h1>
                     <p>
                         Me chamo Taylor e sou mais um estudante do ensino médio técnico em marketing, e atualmente sigo atuando como bolsista do projeto masterclass. Tenho um grande interresse por fisica e tecnologia. <br> seguindo o teste do Cern eu sou um Anti-Neutrino do Eletron!
                     </p>
                 </div>
             </div>
         </section>
+        <!-- pessoa 5 -->
         <section class="faixa-branca">
             <div class="resumo-container">
                 <div class="coluna-esquerda">
                     <img src="../imagens/perfil_felipe.jpg" alt="perfil Julia">
                 </div>
                 <div class="coluna-direita">
-                <h2>Felipe</h2>
+                <h1>Felipe</h1>
                     <p>
                         Me chamo Felipe e sou estudante do Ensino Médio Técnico em Marketing. Atualmente, atuo como voluntário no projeto masterclass. Tenho grande interesse por Física e História, áreas que despertam minha curiosidade e me motivam a compreender melhor o mundo e suas transformações.<br> E sobre o teste do Cern eu sou um Neutrino de Múon
                     </p>
@@ -444,12 +398,9 @@
                     </p>
                 </div>
             </div>
-        <div>
+        </div>
     </footer>
 
-    <script type="module" src="../base.js"> </script>
-
-
-
+    <script type="module" src="../base.js"></script>
 </body>
 </html>
