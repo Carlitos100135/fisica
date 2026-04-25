@@ -46,7 +46,20 @@
             height: auto;
             border-radius: 10px;
         }
-
+        @media (max-width: 768px) {
+            .conteudo-inscricao {
+                flex-direction: column;
+            }
+            .imagem-inscricao img {
+                width: 100%;
+            }
+            .texto-inscricao {
+                padding: 0px 0px 10px;
+            }
+            .espaçamento{
+                padding: 0px 30px 10px;
+            }
+        }
     </style>
 </head>
 
@@ -90,7 +103,7 @@
                     <p> Internacional de Física do CERN no IFSC – Campus São Lourenço do Oeste ainda não está com inscrições abertas para a próxima edição. O evento, que aproxima jovens do universo das pesquisas científicas em Física de Partículas, terá novas informações divulgadas em breve nos canais oficiais da instituição.</p>
 
                     <p><strong>Enquanto isso, você pode:</strong></p>
-                    <ul>
+                    <ul class="espaçamento">
                     <li>Conferir como foi a edição anterior;</li>
                     <li>Acompanhar os resultados e registros das atividades realizadas;</li>
                     <li>Conhecer os projetos e análises desenvolvidos pelos participantes;</li>
@@ -99,7 +112,7 @@
 
                     <p>📢 <strong>Inscrições — próxima edição</strong></p>
 
-                    <ul>
+                    <ul class="espaçamento">
                     <li><strong>Status:</strong> Em breve</li>
                     <li><strong>Previsão de realização:</strong> A ser divulgada</li>
                     <li><strong>Local:</strong> Instituto Federal de Santa Catarina (IFSC) – Campus São Lourenço do Oeste</li>

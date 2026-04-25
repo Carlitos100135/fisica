@@ -21,10 +21,6 @@
     <link rel="stylesheet" href="/Global.css">
     <title>Materiais</title>
     <style>
-        
-
-       
-        
         .carrossel-seta {
             position: relative;
             width: 100%;
@@ -36,7 +32,8 @@
         }
         .carrossel-container {
             position: relative;
-            width: 960px;
+            width: 100%;
+            max-width: 960px;
             margin: 25px auto;
             overflow: hidden;
         }
@@ -109,7 +106,7 @@
             color: black;
             font-size: 20px;
             cursor: pointer;
-            z-index: 10;
+            z-index: 5;
             border: 1px solid rgba(0,0,0,0);        
             transition: all 0.25s ease;
         }
@@ -132,6 +129,29 @@
             font-family: "Space Grotesk", sans-serif;
             padding: 10x 0px;
             margin: 10px 0px;
+        }
+        @media (max-width: 768px) {
+            .titulos-espaçado {
+                padding: 10px 15px 0;
+            }
+            .carrossel-container {
+                width: 100%;
+                padding: 0 10px;
+                transform: translateX(-20px);
+            }
+            .carrossel {
+                gap: 20px;
+            }
+            .coluna {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            .seta.esquerda {
+                left: -15px;
+            }
+            .seta.direita {
+                right: -15px;   
+            }
         }
     </style>  
 </head>
@@ -194,10 +214,10 @@
         <section class="faixa-branca">
             <div class="titulo-nucleo">
                 <img src="../imagens/adicionais.svg" alt="icone de partículas brilhando">
-                <h1 class="titulos">Partículas adicionais</h1>
+                <h1 class="titulos-espaçado">Partículas adicionais</h1>
                 <img src="../imagens/adicionais.svg" alt="icone de partículas brilando">
             </div>
-            <p class="texto">Ficou curioso sobre algo ou com vontade de "quero mais"? Aqui estão algumas curiosidades para você</p>
+            <p class="texto" style="padding: 10px;">Ficou curioso sobre algo ou com vontade de "quero mais"? Aqui estão algumas curiosidades para você</p>
             <div class="carrossel-seta">
                 <button class="seta esquerda">&#10094;</button>
                 <div class="carrossel-container">

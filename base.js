@@ -133,29 +133,27 @@ function initMateriais(){
   if(!carrossel || !esquerda || !direita || !container) return;
 
   let posicao = 0;
-  const gap = 30;
+  const itemBase = carrossel.querySelector(".coluna");
+
+  function getGap(){
+    return parseFloat(getComputedStyle(carrossel).gap) || 0;
+  }
 
   function obterVisiveis(){
-    const larguraItem = 290 + gap;
+    if (!itemBase) return 1;
+    const larguraItem = itemBase.getBoundingClientRect().width + getGap();
     const larguraDisponivel = container.clientWidth;
-    return Math.floor(larguraDisponivel / larguraItem);
+    return Math.max(1, Math.floor(larguraDisponivel / larguraItem));
   }
 
   let visiveis = obterVisiveis();
 
   function atualizarCarrossel(){
+    if (!itemBase) return;
 
-    let larguraItem;
-
-    if(window.innerWidth <= 768){
-      larguraItem = container.clientWidth;
-    }else{
-      larguraItem = 290 + gap;
-    }
-
+    const larguraItem = itemBase.getBoundingClientRect().width + getGap();
     const deslocamento = posicao * larguraItem;
     carrossel.style.transform = `translateX(-${deslocamento}px)`;
-
   }
 
   direita.addEventListener("click", () => {
@@ -181,6 +179,9 @@ function initMateriais(){
   window.addEventListener("resize", () => {
 
     visiveis = obterVisiveis();
+    const total = carrossel.children.length;
+    const maxPosicao = Math.max(0, total - visiveis);
+    if (posicao > maxPosicao) posicao = maxPosicao;
     atualizarCarrossel();
 
   });
