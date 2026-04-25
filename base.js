@@ -281,8 +281,7 @@ function initGaleria(){
         "../imagens/Galeria2025/Part6.png",
         "../imagens/Galeria2025/Part7.png",
         "../imagens/Galeria2025/Part8.png",
-        "../imagens/Galeria2025/Part9.png",
-        "../imagens/Galeria2025/Part10.png"
+        "../imagens/Galeria2025/Part9.png"
       ]
     }
   };
