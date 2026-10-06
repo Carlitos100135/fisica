@@ -430,6 +430,7 @@
         .faixa-branca{
             transform: none;
             width: auto;
+            max-width: 95%;
             margin: 40px auto;            
             padding: 20px 35px 30px;
         }
