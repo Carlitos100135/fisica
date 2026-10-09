@@ -4,6 +4,9 @@
 
 ###### **Gerais:**
 
+C = #CD74C1
+M = #A13A93
+F = #561F4F
 
 
 * mudar/adicionar uma transição mais suave do banner pro bg	
