@@ -3,13 +3,6 @@
 <head>
     <!-- Google tag (gtag.js) --> 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DWQPQXCW78"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-DWQPQXCW78');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Descubra a Masterclass Internacional de Física do CERN no IFSC São Lourenço do Oeste. o projeto conta com experiências práticas em física de partículas para estudantes e professores.">
@@ -25,12 +18,16 @@
     <link rel="stylesheet" href="Global.css">
     <title>Projeto Masterclass SLO</title>
     <style>
+
         /* carrossel do inicio */ 
         .post { 
             position: relative;
-            width: 80%;
+            width: 100%;
             max-width: 550px;
             margin: auto;
+            overflow: visible;
+        }
+        .post-viewport {
             overflow: hidden;
             background: white;
             border-radius: 10px;
@@ -41,27 +38,39 @@
         }
         .post-count img {
             flex: 0 0 100%;
-            width: 100%;
+            max-width: 100%;
             height: auto;
             object-fit: contain;
         }
-        .post button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0,0,0,0.5);
-            color: white; 
-            border: none;
-            font-size: 30px;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 50%;
-            z-index: 5;
+        .post-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 9px;
+            margin-top: 12px;
         }
-        .post .prev { left: 10px; }
-        .post .next { right: 10px; }
-        .post button:hover {
-            background: rgba(0, 0, 0, 0.8);
+        .post-indicator {
+            width: 9px;
+            height: 9px;
+            padding: 0;
+            border: 0;
+            border-radius: 50%;
+            background: #b8b8b8;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+        .post-indicator.is-active {
+            background: #CD74C1;
+            transform: scale(1.45);
+        }
+        .post-indicator:focus-visible {
+            outline: 2px solid #A13A93;
+            outline-offset: 3px;
+        }
+        .seta.esquerda {
+            left: -45px;
+        }
+        .seta.direita {
+            right: -45px;
         }
     </style>
 </head>
@@ -80,8 +89,10 @@
             <a href="https://www.instagram.com/masterclassdocern.ifscslo/" target="_blank">Instagram</a>
             <a href="páginas/time.html">Time</a> 
             <a href="páginas/materiais.html">Materiais</a>
+            <a href="páginas/extras.html#faq">FAQ</a>
             <a href="https://home.cern/" target="_blank">CERN & Técnica</a>
             <a href="páginas/resultados.html">Resultados</a> 
+            <a href="páginas/extras.html#quiz">Quiz</a>
             <a href="páginas/inscrições.html">Inscrição</a>
         </nav>
     </header>
@@ -92,18 +103,21 @@
     <main>
         
         <div class="post">
-            <button id="prev" class="prev">&#10094;</button>
+            <button id="prev" class="seta esquerda">&#10094;</button>
 
-            <div class="post-count">
-                <img src="imagens/post1.png" alt="post1">
-                <img src="imagens/post2.png" alt="post2">
-                <img src="imagens/post3.png" alt="post3">
-                <img src="imagens/post4.png" alt="post4">
-                <img src="imagens/post5.png" alt="post5">   
-                <img src="imagens/post6.png" alt="post6">
+            <div class="post-viewport">
+                <div class="post-count">
+                    <img src="imagens/post1.png" alt="post1">
+                    <img src="imagens/post2.png" alt="post2">
+                    <img src="imagens/post3.png" alt="post3">
+                    <img src="imagens/post4.png" alt="post4">
+                    <img src="imagens/post5.png" alt="post5">   
+                    <img src="imagens/post6.png" alt="post6">
+                </div>
             </div>
 
-            <button id="next" class="next">&#10095;</button>
+            <button id="next" class="seta direita">&#10095;</button>
+            <div class="post-indicators" role="group" aria-label="Navegação dos posts"></div>
         </div>
 
         <!--caixa 1 -->
@@ -159,8 +173,32 @@
             </div>
         </div>
     </main>
+    <div id="cookie-banner" class="cookie-banner" role="dialog"
+        aria-label="Preferências de privacidade" hidden>
+    <div class="cookie-content">
+        <strong>Privacidade e cookies</strong>
+        <p>
+            Utilizamos o Google Analytics para entender como o site é acessado
+            e melhorar nossos conteúdos. O Analytics só será ativado se você
+            aceitar. Consulte nossa
+        <a href="/privacidade/">Política de Privacidade</a>.
+        </p>
+        <div class="cookie-actions">
+            <button id="accept-cookies" type="button">
+                Aceitar
+            </button>
+            <button id="reject-cookies" type="button">
+                Rejeitar
+            </button>
+        </div>
+    </div>
+    </div>
 
     <footer>
+        <a href="páginas/extras.html#privacidade">Política de Privacidade</a>
+        <button id="cookie-settings" type="button">
+            Preferências de cookies
+        </button>
         <div class="container-footer">
             <div class="coluna-esquerda-footer">
                 <a href="https://www.ifsc.edu.br/en/web/campus-sao-lourenco-do-oeste" target="_blank">

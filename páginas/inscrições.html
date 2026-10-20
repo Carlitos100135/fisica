@@ -4,10 +4,6 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DWQPQXCW78"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
         gtag('config', 'G-DWQPQXCW78');
     </script> 
     <meta charset="UTF-8">
@@ -41,11 +37,12 @@
             align-items: center;
         }
         .imagem-inscricao img {
-            width: 100%;
             max-width: 100%;
+            width: 400px;
             height: auto;
             border-radius: 10px;
         }
+
         @media (max-width: 768px) {
             .conteudo-inscricao {
                 flex-direction: column;
@@ -77,8 +74,10 @@
             <a href="https://www.instagram.com/masterclassdocern.ifscslo/" target="_blank">Instagram</a>
             <a href="../páginas/time.html">Time</a>
             <a href="../páginas/materiais.html">Materiais</a>
+            <a href="../páginas/extras.html#faq">FAQ</a>
             <a href="https://home.cern/" target="_blank">CERN & Técnica</a>
             <a href="../páginas/resultados.html">Resultados</a>
+            <a href="../páginas/extras.html#quiz">Quiz</a>
             <a href="../páginas/inscrições.html">Inscrição</a>
         </nav>
     </header>
@@ -132,16 +131,37 @@
                 </div>
 
                 <div class="imagem-inscricao">
-                    <img src="../imagens/arte_inscrição2.png" alt="Arte de inscrição, A maior experiência de Física de Partículas para estudantes do ensino médio. Inscrição em breve!">
+                    <img src="../imagens/arte_inscrição.png" alt="Arte de inscrição, A maior experiência de Física de Partículas para estudantes do ensino médio. Inscrição em breve!">
                 </div>
             </div>
-        </section>
-
-        
-        
+        </section>              
     </main>
+    <div id="cookie-banner" class="cookie-banner" role="dialog"
+        aria-label="Preferências de privacidade" hidden>
+    <div class="cookie-content">
+        <strong>Privacidade e cookies</strong>
+        <p>
+            Utilizamos o Google Analytics para entender como o site é acessado
+            e melhorar nossos conteúdos. O Analytics só será ativado se você
+            aceitar. Consulte nossa
+        <a href="/privacidade/">Política de Privacidade</a>.
+        </p>
+        <div class="cookie-actions">
+            <button id="accept-cookies" type="button">
+                Aceitar
+            </button>
+            <button id="reject-cookies" type="button">
+                Rejeitar
+            </button>
+        </div>
+    </div>
+    </div>
 
     <footer>
+        <a href="extras.html#privacidade">Política de Privacidade</a>
+        <button id="cookie-settings" type="button">
+            Preferências de cookies
+        </button>
         <div class="container-footer">
             <div class="coluna-esquerda-footer">
                 <a href="https://www.ifsc.edu.br/en/web/campus-sao-lourenco-do-oeste" target="_blank">
@@ -177,5 +197,4 @@
 
 </body>
 </html>
-
 

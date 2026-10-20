@@ -5,10 +5,6 @@
         <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DWQPQXCW78"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
         gtag('config', 'G-DWQPQXCW78');
     </script>
     <meta charset="UTF-8">
@@ -20,6 +16,9 @@
     <title>Resultados</title>
 
     <style> 
+        .accordion-btn{
+            max-width:300px;
+        }
         .modal{
             display:none;
             position:fixed;
@@ -62,7 +61,7 @@
         #next{ right:-50px; }
         .galeria-item{
             cursor:pointer;
-            color:#3082a1;
+            color:#CD74C1;
             font-weight:bold;
         }
         .galeria-item:hover{
@@ -116,8 +115,10 @@
             <a href="https://www.instagram.com/masterclassdocern.ifscslo/" target="_blank">Instagram</a>
             <a href="../páginas/time.html">Time</a>
             <a href="../páginas/materiais.html">Materiais</a>
+            <a href="../páginas/extras.html#faq">FAQ</a>
             <a href="https://home.cern/" target="_blank">CERN & Técnica</a>
             <a href="../páginas/resultados.html">Resultados</a>
+            <a href="../páginas/extras.html#quiz">Quiz</a>
             <a href="../páginas/inscrições.html">Inscrição</a>
         </nav>
     </header>
@@ -176,11 +177,35 @@
                                 <ul>Alguma coisa</ul>-->
                 </div>
             </div>
-
         </div>
     </main>
 
+    <div id="cookie-banner" class="cookie-banner" role="dialog"
+        aria-label="Preferências de privacidade" hidden>
+    <div class="cookie-content">
+        <strong>Privacidade e cookies</strong>
+        <p>
+            Utilizamos o Google Analytics para entender como o site é acessado
+            e melhorar nossos conteúdos. O Analytics só será ativado se você
+            aceitar. Consulte nossa
+        <a href="/privacidade/">Política de Privacidade</a>.
+        </p>
+        <div class="cookie-actions">
+            <button id="accept-cookies" type="button">
+                Aceitar
+            </button>
+            <button id="reject-cookies" type="button">
+                Rejeitar
+            </button>
+        </div>
+    </div>
+    </div>
+
     <footer>
+        <a href="extras.html#privacidade">Política de Privacidade</a>
+        <button id="cookie-settings" type="button">
+            Preferências de cookies
+        </button>
         <div class="container-footer">
             <div class="coluna-esquerda-footer">
                 <a href="https://www.ifsc.edu.br/en/web/campus-sao-lourenco-do-oeste" target="_blank">
@@ -223,5 +248,4 @@
         <script type="module" src="../base.js"></script>
 </body>
 </html>
-
 

@@ -5,9 +5,6 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DWQPQXCW78"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
         gtag('config', 'G-DWQPQXCW78');
     </script>
     <meta charset="UTF-8">
@@ -96,36 +93,6 @@
             font-weight: bold;
             z-index: 2;
         }
-        .seta {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 42px;
-            height: 42px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(6px);
-            border-radius: 50%;
-            color: black;
-            font-size: 20px;
-            cursor: pointer;
-            z-index: 5;
-            border: 1px solid rgba(0,0,0,0);        
-            transition: all 0.25s ease;
-        }
-        .seta:hover {
-            background: #3082a1;
-            transform: translateY(-50%) scale(1.1);
-            border: 2px solid #083e77;
-        }
-        .seta.esquerda {
-            left: 30px;
-        }
-        .seta.direita {
-            right: 20px;
-        }
         .Faixa-inferior{
             background-color: rgb(14, 21, 51);
             color: #fff;
@@ -175,8 +142,10 @@
             <a href="https://www.instagram.com/masterclassdocern.ifscslo/" target="_blank">Instagram</a>
             <a href="../páginas/time.html">Time</a>
             <a href="../páginas/materiais.html">Materiais</a>
+            <a href="../páginas/extras.html#faq">FAQ</a>
             <a href="https://home.cern/" target="_blank">CERN & Técnica</a>
             <a href="../páginas/resultados.html">Resultados</a>
+            <a href="../páginas/extras.html#quiz">Quiz</a>
             <a href="../páginas/inscrições.html">Inscrição</a>
         </nav>
     </header>
@@ -250,7 +219,32 @@
         <div class="Faixa-inferior">
             <p><strong><em> A jornada do conhecimento nunca termina. Compartilhe conosco novos materiais e vamos crescer juntos</strong></em></p>
         </div>
+      <div id="cookie-banner" class="cookie-banner" role="dialog"
+        aria-label="Preferências de privacidade" hidden>
+    <div class="cookie-content">
+        <strong>Privacidade e cookies</strong>
+        <p>
+            Utilizamos o Google Analytics para entender como o site é acessado
+            e melhorar nossos conteúdos. O Analytics só será ativado se você
+            aceitar. Consulte nossa
+        <a href="/privacidade/">Política de Privacidade</a>.
+        </p>
+        <div class="cookie-actions">
+            <button id="accept-cookies" type="button">
+                Aceitar
+            </button>
+            <button id="reject-cookies" type="button">
+                Rejeitar
+            </button>
+        </div>
+    </div>
+    </div>
+
     <footer>
+        <a href="extras.html#privacidade">Política de Privacidade</a>
+        <button id="cookie-settings" type="button">
+            Preferências de cookies
+        </button>
         <div class="container-footer">
             <div class="coluna-esquerda-footer">
                 <a href="https://www.ifsc.edu.br/en/web/campus-sao-lourenco-do-oeste" target="_blank">

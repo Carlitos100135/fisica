@@ -4,10 +4,6 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DWQPQXCW78"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
         gtag('config', 'G-DWQPQXCW78');
     </script>
     <meta charset="UTF-8">
@@ -26,24 +22,40 @@
     <title>Informações adicionais</title>
 
     <style>
+        .accordion, .accordion-content {
+            margin-left: 0;
+        }
         .texto {
             color: #3082a1;
             font-family: "Lora", serif;
             -webkit-text-stroke-color: black;
             -webkit-text-stroke-width: 100%; 
         }
-        body[data-page="extras"] .accordion {
-            max-width: none;
-            margin-left: 0;
+        #faq .faq-extra {
+            display: grid;
+            grid-template-rows: 0fr;
+            opacity: 0;
+            transition: grid-template-rows 0.4s ease, opacity 0.25s ease;
         }
 
-        body[data-page="extras"] .accordion-btn {
-            max-width: none;
+        #faq.faq-expanded .faq-extra {
+            grid-template-rows: 1fr;
+            opacity: 1;
         }
 
-        body[data-page="extras"] .accordion-content {
-            margin-left: 0;
-            margin-bottom: 12px;
+        #faq .faq-extra-inner {
+            min-height: 0;
+            overflow: hidden;
+        }
+        #faq .faq-toggle {
+            display: block;
+            margin: 14px 0 0 auto;
+            border: 0;
+            background: transparent; 
+            color: #561F4F;
+            cursor: pointer;
+            font: inherit;
+            text-align: right;
         }
     </style>
 </head>
@@ -62,8 +74,10 @@
             <a href="https://www.instagram.com/masterclassdocern.ifscslo/" target="_blank">Instagram</a>
             <a href="../páginas/time.html">Time</a>
             <a href="../páginas/materiais.html">Materiais</a>
+            <a href="../páginas/extras.html#faq">FAQ</a>
             <a href="https://home.cern/" target="_blank">CERN & Técnica</a>
             <a href="../páginas/resultados.html">Resultados</a>
+            <a href="../páginas/extras.html#quiz">Quiz</a>
             <a href="../páginas/inscrições.html">Inscrição</a>
         </nav>
     </header>
@@ -83,22 +97,22 @@
             <p> No Brasil, universidades e institutos federais vêm organizando edições da masterclass, fortalecendo a integração entre ensino médio e pesquisa científica. Para muitos estudantes, participar da masterclass representa o primeiro contato direto com a investigação científica moderna e pode servir de motivação para seguir carreiras nas áreas de física, engenharia, computação ou mesmo no desenvolvimento de novas tecnologias. Assim, mais do que uma atividade isolada, o projeto busca formar cidadãos críticos e curiosos, capazes de compreender a ciência como parte fundamental do avanço da sociedade.</p>
         </section>
 
-        <section class="faixa-branca">
+        <section class="faixa-branca" id="quiz">
             <div class="titulo-nucleo">
                 <img src="../imagens/orbita.svg" alt="ícone de uma órbita de elétron">
                 <h1 class="titulos">Quiz de partículas!</h1>
                 <img src="../imagens/orbita.svg" alt="ícone de uma órbita de elétron">
             </div> 
-                <p> Use o quiz abaixo para descobrir qual partícula do Modelo Padrão você seria! Existem diversos tipos de partículas no universo, cada uma com suas propriedades e características únicas, e esta atividade propõe uma forma divertida e interativa de conhecê-las. A partir de perguntas sobre suas características e preferências, você receberá, ao final, uma resposta indicando a partícula que mais se assemelha a você. Assim, além de descobrir sua “partícula”, você poderá comparar suas características com as demais e aprender mais sobre como elas se comportam e sobre o fascinante mundo subatômico da física de partículas. </p>
+                <p>Responda às perguntas e descubra qual partícula do Modelo Padrão combina com o seu jeito de pensar. No final, você também conhecerá algumas características dessa partícula.</p>
             <div class="links">
                 <div class="botao-svg">
                     <img src="../imagens/nucleo.svg" alt="ícone de um átomo" style="width: 35px;">
-                    <a href="...." class="link" > Descubra sua particula</a>
+                    <a href="particulas.html" class="link">Descobrir minha partícula</a>
                 </div>
             </div>
         </section>
 
-        <section class="faixa-branca">
+        <section id="faq" class="faixa-branca">
             <div class="titulo-nucleo">
                 <img src="../imagens/inscrições2.svg" alt="ícone de um papel com escrita">
                 <h1 class="titulos">FAQ</h1>
@@ -111,8 +125,7 @@
                 </button>
                 <div class="accordion-content">
                     <p>
-                        É um programa de divulgação científica em que estudantes têm contato
-                        com a física de partículas e analisam dados reais de colisões.
+                        É um projeto educacional internacional que aproxima estudantes do ensino médio e professores da física de partículas. Por meio de palestras e atividades práticas, os participantes conhecem conceitos fundamentais da área e têm contato com dados produzidos em experimentos reais de física de altas energias.
                     </p>
                 </div>
 
@@ -132,7 +145,113 @@
                         ele acontece durante dois dias, com atividades distribuidas ao longo desse periodo. Elas podem ser conferidas de maneira especifica na programação do evento.
                     </p>
                 </div>
+                <div class="faq-extra">
+                    <div class="faq-extra-inner">
+                        <button class="accordion-btn" type="button">
+                            Como o Cern se vincula ao evento?
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                O CERN é um dos principais centros mundiais de pesquisa em física de partículas e abriga o Grande Colisor de Hádrons (LHC). O projeto permite que os participantes explorem dados relacionados a experimentos desse campo de pesquisa e conheçam um pouco da ciência desenvolvida nesses ambientes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-extra">
+                    <div class="faq-extra-inner">
+                        <button class="accordion-btn faq-extra" type="button">
+                            O que os participantes fazem durante a Masterclass?
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                Os participantes acompanham apresentações introdutórias, aprendem sobre aceleradores e detectores de partículas e realizam atividades de análise de dados. Ao final, podem interpretar resultados e discutir suas conclusões, vivenciando etapas semelhantes às de uma investigação científica.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-extra">
+                    <div class="faq-extra-inner">
+                        <button class="accordion-btn faq-extra" type="button">
+                            Quem pode participar do evento?
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                O projeto é voltado principalmente para estudantes do ensino médio e professores, mas também é aberto para qualquer interessados, basta se inscrever.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-extra">
+                    <div class="faq-extra-inner">
+                        <button class="accordion-btn faq-extra" type="button">
+                            Como faço minha inscrição?
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                            As informações e orientações de inscrição são divulgadas neste site quando um novo período de inscrições é aberto. Também é possível acompanhar os canais oficiais do projeto para receber atualizações sobre as próximas edições.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <button class="faq-toggle" type="button" aria-expanded="false">mais</button>
+        </section>
+
+    <!-- ===============================
+        POLÍTICA DE PRIVACIDADE
+    ================================= -->
+    <section id="privacidade" class="faixa-branca">
+        <div class="titulo-nucleo">
+            <img src="../imagens/inscrições1.svg" alt="Ícone de privacidade">
+            <h1 class="titulos">Política de Privacidade</h1>
+            <img src="../imagens/inscrições2.svg" alt="Ícone de privacidade">
+        </div>
+        <p>
+            Esta Política de Privacidade descreve como o projeto <strong>Masterclass Internacional de Física do CERN (IFSC – Câmpus São Lourenço do Oeste)</strong> lida com as informações dos visitantes, em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018).
+        </p>
+
+        <div class="accordion">
+            <button class="accordion-btn" type="button">1. Uso de Cookies e Google Analytics</button>
+            <div class="accordion-content">
+                <p>
+                    Utilizamos o <strong>Google Analytics</strong> para compreender o fluxo de navegação e melhorar os conteúdos do site e do evento.
+                </p>
+                <p>
+                    O Analytics <strong>apenas é ativado após o seu consentimento explícito</strong> no banner de entrada. Se selecionar a opção "Rejeitar", nenhum script de rastreamento será executado.
+                </p>
+            </div>
+
+            <button class="accordion-btn" type="button">2. Armazenamento de Preferências</button>
+            <div class="accordion-content">
+                <p>
+                    A sua escolha (aceitar ou rejeitar) é guardada localmente no seu navegador através do <code>localStorage</code> (chave <code>masterclass_cookie_consent</code>).
+                </p>
+                <p>
+                    Isso evita que o banner seja reexibido a cada mudança de página. A preferência guardada expira automaticamente após 365 dias.
+                </p>
+            </div>
+
+            <button class="accordion-btn" type="button">3. Dados no Quiz e Navegação</button>
+            <div class="accordion-content">
+                <p>
+                    Não recolhemos nem armazenamos dados pessoais sensíveis no nosso servidor.
+                </p>
+                <p>
+                    O nome de utilizador digitado para jogar o <em>Quiz de Física</em> é processado unicamente para que sua pontuação seja armazenada e computada. Nenhum dado pessoal além do nome do utilizador é enviado para o servidor, nem é associado a qualquer outro dado de navegação. O nome do utilizador é exibido publicamente na tabela de pontuação, mas não é vinculado a nenhum outro dado pessoal. 
+                </p>
+            </div>
+
+            <button class="accordion-btn" type="button">4. Alterar Consentimento e Contacto</button>
+            <div class="accordion-content">
+                <p>
+                    Pode alterar as suas opções de privacidade a qualquer momento clicando no botão <strong>"Preferências de cookies"</strong> disponível no rodapé de todas as páginas.
+                </p>
+                <p>
+                    Para dúvidas ou esclarecimentos adicionais, contacte a equipa do projeto pelo e-mail: 
+                    <a href="mailto:projetomasterclass.slo@gmail.com">projetomasterclass.slo@gmail.com</a>.
+                </p>
+            </div>
+        </div>
     </section>
 
         <section class="faixa-branca">
@@ -156,10 +275,33 @@
                 </div>
             </div>
         </section>
-        
     </main>
+    <div id="cookie-banner" class="cookie-banner" role="dialog"
+        aria-label="Preferências de privacidade" hidden>
+    <div class="cookie-content">
+        <strong>Privacidade e cookies</strong>
+        <p>
+            Utilizamos o Google Analytics para entender como o site é acessado
+            e melhorar nossos conteúdos. O Analytics só será ativado se você
+            aceitar. Consulte nossa
+        <a href="/privacidade/">Política de Privacidade</a>.
+        </p>
+        <div class="cookie-actions">
+            <button id="accept-cookies" type="button">
+                Aceitar
+            </button>
+            <button id="reject-cookies" type="button">
+                Rejeitar
+            </button>
+        </div>
+    </div>
+    </div>
 
     <footer>
+        <a href="extras.html#privacidade">Política de Privacidade</a>
+        <button id="cookie-settings" type="button">
+            Preferências de cookies
+        </button>
         <div class="container-footer">
             <div class="coluna-esquerda-footer">
                 <a href="https://www.ifsc.edu.br/en/web/campus-sao-lourenco-do-oeste" target="_blank">
@@ -189,10 +331,7 @@
                 </div>
             </div>
         </div>   
-    </footer>
     <script type="module" src="../base.js"></script>
 
 </body>  
 </html>
-
-

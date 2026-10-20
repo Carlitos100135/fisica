@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubra qual partícula do Modelo Padrão combina com o seu jeito de pensar neste quiz interativo da Masterclass.">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/x-icon" href="../imagens/icone.ico">
+    <link rel="stylesheet" href="/Global.css">
+    <link rel="stylesheet" href="particulas.css">
+    <title>Qual partícula combina com você? | Masterclass</title>
+    <style>
+        .titulos {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body data-page="particulas">
+    <canvas id="canvas-bg"></canvas>
+    
+    <header id="header" class="transparent">
+        <div class="menu-btn" id="menu-btn" aria-label="Abrir menu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav id="menu" aria-label="Navegação principal">
+            <a href="../index.html">Início</a>
+            <a href="https://www.instagram.com/masterclassdocern.ifscslo/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="time.html">Time</a>
+            <a href="materiais.html">Materiais</a>
+            <a href="extras.html#faq">FAQ</a>
+            <a href="https://home.cern/" target="_blank" rel="noopener noreferrer">CERN &amp; Técnica</a>
+            <a href="resultados.html">Resultados</a>
+            <a href="quiz.html">Quiz Conhecimento</a>
+            <a href="particulas.html" aria-current="page">Quiz Partícula</a>
+            <a href="inscrições.html">Inscrição</a>
+        </nav>
+    </header>
+    
+    <div id="overlay" class="overlay"></div>
+    <section id="banner" aria-hidden="true"></section>
+
+    <main class="particle-page">
+        <section class="particle-quiz" aria-labelledby="page-title">
+            <div class="particle-heading">
+                <span class="particle-kicker">Masterclass · Modelo Padrão</span>
+                <h1 id="page-title" class="titulos">Qual partícula combina com você?</h1>
+                <p>Escolha as alternativas que mais se alinham ao seu perfil e descubra qual partícula do Modelo Padrão tem mais a ver com você.</p>
+            </div>
+
+            <section class="particle-panel particle-intro" id="quiz-intro" aria-labelledby="intro-title">
+                <div class="particle-orbit" aria-hidden="true"><span></span></div>
+                <div>
+                    <h2 id="intro-title">Vamos descobrir?</h2>
+                    <p>São 6 perguntas rápidas. Este quiz é uma dinâmica lúdica inspirada nas características fundamentais da física de partículas.</p>
+                    <button class="botao" id="quiz-start" type="button">Começar o desafio →</button>
+                </div>
+            </section>
+
+            <section class="particle-panel particle-game" id="quiz-game" aria-labelledby="quiz-question" hidden>
+                <div class="particle-meta">
+                    <span id="quiz-count">Pergunta 1 de 6</span>
+                    <span id="quiz-progress-label">0% concluído</span>
+                </div>
+                <div class="particle-progress" role="progressbar" id="quiz-progress" aria-label="Progresso do quiz" aria-valuemin="0" aria-valuemax="6" aria-valuenow="0">
+                    <span id="quiz-progress-fill"></span>
+                </div>
+                <h2 class="particle-question" id="quiz-question" tabindex="-1"></h2>
+                <div class="particle-options" id="quiz-options"></div>
+                <div class="particle-next-row">
+                    <button class="botao" id="quiz-next" type="button" hidden>Próxima pergunta →</button>
+                </div>
+            </section>
+
+            <section class="particle-panel particle-result" id="quiz-result" aria-labelledby="quiz-result-title" aria-live="polite" hidden>
+                <span class="particle-kicker">Resultado do Quiz</span>
+                <div class="particle-result-mark" id="quiz-result-mark" aria-hidden="true"></div>
+                <h2 id="quiz-result-title"></h2>
+                <p class="particle-family" id="quiz-result-family"></p>
+                <p class="particle-description" id="quiz-result-description"></p>
+                <p class="particle-note">A associação é lúdica. Na física, cada partícula possui propriedades específicas e fundamentais.</p>
+                <div class="particle-result-actions">
+                    <button class="botao" id="quiz-again" type="button">Refazer quiz ↻</button>
+                    <a class="link" href="extras.html">Voltar às informações adicionais</a>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Preferências de privacidade" hidden>
+        <div class="cookie-content">
+            <strong>Privacidade e cookies</strong>
+            <p>Utilizamos o Google Analytics para entender como o site é acessado. O Analytics só será ativado se você aceitar. Consulte nossa <a href="extras.html#privacidade">Política de Privacidade</a>.</p>
+            <div class="cookie-actions">
+                <button id="accept-cookies" type="button">Aceitar</button>
+                <button id="reject-cookies" type="button">Rejeitar</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <a href="extras.html#privacidade">Política de Privacidade</a>
+        <button id="cookie-settings" type="button">Preferências de cookies</button>
+        <div class="container-footer">
+            <div class="coluna-esquerda-footer">
+                <a href="https://www.ifsc.edu.br/en/web/campus-sao-lourenco-do-oeste" target="_blank">
+                    <img src="../imagens/logo_ifsc.png" alt="logo ifsc">
+                </a>
+                <p>Acesse o site do IFSC</p>
+            </div>
+            <div class="coluna-direita-footer">
+                <p>
+                    <a href="https://home.cern/" target="_blank">Sobre o CERN</a>
+                    <span>|</span> 
+                    <a href="https://sprace.org.br/" target="_blank">Sprace</a>
+                    <span>|</span>
+                    <a href="https://renafae.cbpf.br/" target="_blank">Renafae</a>
+                    <span>|</span>
+                    <a href="https://www.lip.pt/" target="_blank">Lip.pt</a>
+                </p>
+                <div class="texto-footer">
+                    <p>Contatos: 
+                        <a href="https://www.instagram.com/masterclassdocern.ifscslo/" target="_blank">
+                            <img src="../imagens/logo_insta.png" alt="Instagram" style="vertical-align: middle; width: 50px;">
+                        </a> 
+                        <a href="mailto:projetomasterclass.slo@gmail.com" target="_blank">
+                            <img src="../imagens/icone_email.png" alt="E-mail" style="vertical-align: middle; width: 50px;">
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="../base.js"></script>
+</body>
+</html>
